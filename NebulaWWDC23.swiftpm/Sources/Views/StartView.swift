@@ -2,8 +2,13 @@ import SwiftUI
 
 struct StartView: View {
     
+    @State var isAtMaxScale = false
+    
     let widthScreen = UIScreen.main.bounds.width
     let heightScreen = UIScreen.main.bounds.height
+    
+    private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
+    private let maxScale: CGFloat = 1.1
     
     var body: some View {
         ZStack {
@@ -30,6 +35,12 @@ struct StartView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: widthScreen * 0.617, height: heightScreen * 0.06)
+                        .scaleEffect(isAtMaxScale ? maxScale : 1)
+                        .onAppear {
+                            withAnimation(self.animation) {
+                                self.isAtMaxScale.toggle()
+                            }
+                        }
                 }
                 
             }
