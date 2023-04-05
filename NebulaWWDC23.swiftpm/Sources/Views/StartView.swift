@@ -28,7 +28,7 @@ struct StartView: View {
                         .foregroundColor(Color.theme.lightGreen)
                         .multilineTextAlignment(.center)
                     
-                    NavigationLink(destination: OnboardingOne()) {
+                    NavigationLink(destination: Onboarding()) {
                         Image.theme.pressStart
                             .resizable()
                             .scaledToFit()

@@ -15,7 +15,7 @@ struct OnboardingTextComponent: View {
     
     var body: some View {
         
-        ZStack {
+        ZStack (alignment: .init(horizontal: .center, vertical: .center)) {
             
             Image.theme.rectText
                 .resizable()
@@ -27,8 +27,10 @@ struct OnboardingTextComponent: View {
                 .multilineTextAlignment(.center)
                 .font(.custom(.vt323, size: 28))
                 .frame(width: widthScreen * 0.85, height: heightScreen * 0.08)
+                .padding(.bottom, 16)
             
         }
+
         
         
     }
