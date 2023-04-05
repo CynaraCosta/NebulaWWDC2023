@@ -21,4 +21,5 @@ struct ImageTheme {
     let ball = Image("ball")
     let simulateButton = Image("buttonSimulate")
     let groundEarth = Image("ground-earth")
+    let rectText = Image("rect-text")
 }

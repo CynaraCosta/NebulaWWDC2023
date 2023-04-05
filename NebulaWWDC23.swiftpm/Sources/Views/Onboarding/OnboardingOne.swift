@@ -10,7 +10,7 @@ struct OnboardingOne: View {
         ZStack {
             Background()
             
-            VStack (spacing: 64) {
+            VStack (spacing: 32) {
                 
                 Image.theme.plusButton
                     .resizable()
@@ -31,6 +31,12 @@ struct OnboardingOne: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: widthScreen * 0.2, height: heightScreen * 0.14)
+                
+                Image.theme.rectText
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: widthScreen * 0.88, height: heightScreen * 0.13)
+                
             }
             
         }
