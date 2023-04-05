@@ -32,10 +32,7 @@ struct OnboardingOne: View {
                     .scaledToFit()
                     .frame(width: widthScreen * 0.2, height: heightScreen * 0.14)
                 
-                Image.theme.rectText
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: widthScreen * 0.88, height: heightScreen * 0.13)
+                
                 
             }
             
