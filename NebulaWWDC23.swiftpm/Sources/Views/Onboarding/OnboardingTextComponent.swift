@@ -25,7 +25,7 @@ struct OnboardingTextComponent: View {
             Text(phrase)
                 .foregroundColor(Color.theme.accentOnboardingColor)
                 .multilineTextAlignment(.center)
-                .font(.custom(.vt323, size: 28))
+                .font(.custom(.vt323, size: 24))
                 .frame(width: widthScreen * 0.85, height: heightScreen * 0.08)
                 .padding(.bottom, 16)
             
