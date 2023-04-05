@@ -11,42 +11,41 @@ struct StartView: View {
     private let maxScale: CGFloat = 1.1
     
     var body: some View {
-        ZStack {
-            
-            Image.theme.background
-                .resizable()
-                .ignoresSafeArea(.all)
-            
-            VStack (spacing: 88){
-                Image.theme.nebulaText
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: widthScreen * 0.86, height: heightScreen * 0.15)
+        
+        NavigationView {
+            ZStack {
                 
-                Text("AN INTERPLANETARY SIMULATION GAME")
-                    .font(.custom(.vt323, size: 64))
-                    .foregroundColor(Color.theme.lightGreen)
-                    .multilineTextAlignment(.center)
+                Background()
                 
-                Button(action: {
-                    print("button pressed")
-                }) {
-                    Image.theme.pressStart
+                VStack (spacing: 88){
+                    Image.theme.nebulaText
                         .resizable()
                         .scaledToFit()
-                        .frame(width: widthScreen * 0.617, height: heightScreen * 0.06)
-                        .scaleEffect(isAtMaxScale ? maxScale : 1)
-                        .onAppear {
-                            withAnimation(self.animation) {
-                                self.isAtMaxScale.toggle()
+                        .frame(width: widthScreen * 0.86, height: heightScreen * 0.15)
+                    
+                    Text("AN INTERPLANETARY SIMULATION GAME")
+                        .font(.custom(.vt323, size: 64))
+                        .foregroundColor(Color.theme.lightGreen)
+                        .multilineTextAlignment(.center)
+                    
+                    NavigationLink(destination: OnboardingOne()) {
+                        Image.theme.pressStart
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: widthScreen * 0.617, height: heightScreen * 0.06)
+                            .scaleEffect(isAtMaxScale ? maxScale : 1)
+                            .onAppear {
+                                withAnimation(self.animation) {
+                                    self.isAtMaxScale.toggle()
+                                }
                             }
-                        }
+                    }
+                    
                 }
                 
+                
             }
-            
-            
         }
-        
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
