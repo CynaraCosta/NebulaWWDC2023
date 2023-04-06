@@ -16,6 +16,10 @@ class Planets: ObservableObject {
         
     }
     
+    func whichPlanet(named name: String) -> Planet? {
+            return planets.first(where: { $0.name == name })
+        }
+    
 }
 
 let dataFromPlanets = [

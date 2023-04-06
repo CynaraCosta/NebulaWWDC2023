@@ -4,9 +4,6 @@ struct StartView: View {
     
     @State var isAtMaxScale = false
     
-    let widthScreen = UIScreen.main.bounds.width
-    let heightScreen = UIScreen.main.bounds.height
-    
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     private let maxScale: CGFloat = 1.1
     
@@ -21,7 +18,7 @@ struct StartView: View {
                     Image.theme.nebulaText
                         .resizable()
                         .scaledToFit()
-                        .frame(width: widthScreen * 0.86, height: heightScreen * 0.15)
+                        .frame(width: UIScreen.getScreenWidth() * 0.86, height: UIScreen.getScreenHeight() * 0.15)
                     
                     Text("AN INTERPLANETARY SIMULATION GAME")
                         .font(.custom(.vt323, size: 64))
@@ -32,7 +29,7 @@ struct StartView: View {
                         Image.theme.pressStart
                             .resizable()
                             .scaledToFit()
-                            .frame(width: widthScreen * 0.617, height: heightScreen * 0.06)
+                            .frame(width: UIScreen.getScreenWidth() * 0.617, height: UIScreen.getScreenHeight() * 0.06)
                             .scaleEffect(isAtMaxScale ? maxScale : 1)
                             .onAppear {
                                 withAnimation(self.animation) {
@@ -40,9 +37,7 @@ struct StartView: View {
                                 }
                             }
                     }
-                    
                 }
-                
                 
             }
         }
