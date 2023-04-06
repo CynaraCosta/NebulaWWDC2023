@@ -22,4 +22,5 @@ struct ImageTheme {
     let simulateButton = Image("buttonSimulate")
     let groundEarth = Image("ground-earth")
     let rectText = Image("rect-text")
+    let backgroundDetailPlanet = Image("back-planet")
 }

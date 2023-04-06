@@ -4,7 +4,8 @@ enum MyCustomFonts: String, CaseIterable {
     
     //e.g, the fonts below:
     case vt323 = "VT323-Regular.ttf"
-    case inconsolate = "Inconsolata-Light.ttf"
+    case inconsolateLight = "Inconsolata-Light.ttf"
+    case inconsolateRegular = "Inconsolata-Regular.ttf"
     
     var fontName: String { String(self.rawValue.dropLast(4)) }
     var fileExtension: String { String(self.rawValue.suffix(3)) }
