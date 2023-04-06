@@ -69,7 +69,7 @@ struct HomeView: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

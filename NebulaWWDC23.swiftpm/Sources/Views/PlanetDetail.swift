@@ -11,6 +11,7 @@ struct PlanetDetail: View {
     
     @State var namePlanet: String
     var planetsViewModel = Planets()
+    @State var pressedSimulate = false
     
     var body: some View {
         
@@ -60,23 +61,21 @@ struct PlanetDetail: View {
                                 .frame(width: UIScreen.getScreenWidth() * 0.27, alignment: .leading)
                                 .fixedSize(horizontal: true, vertical: false)
                             
-                            Image.theme.simulateButton
-                                .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
-                            
+                            NavigationLink(destination: PlanetChooseSimulation(namePlanet: namePlanet), isActive: $pressedSimulate, label: {
+                                Button(action: {
+                                    pressedSimulate.toggle()
+                                }) {
+                                    Image.theme.simulateButton
+                                        .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                                }
+                            })
                         }
                         .frame(width: UIScreen.getScreenWidth() * 0.64, height: UIScreen.getScreenHeight() * 0.09)
                     }
-                    
-                    
                 }
-                    
-                
             }
             .edgesIgnoringSafeArea(.bottom)
-            
-        }
-        
-        
+        }   
     }
 }
 

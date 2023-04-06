@@ -44,6 +44,18 @@ class Planets: ObservableObject {
         return text
     }
     
+    func getTextForGravity() -> String {
+        return textForGravity
+    }
+    
+    func getTextForCollision() -> String {
+        return textForCollision
+    }
+    
+    func getTextForLaunch() -> String {
+        return textForLaunch
+    }
+    
 }
 
 let dataFromPlanets = [
@@ -52,4 +64,6 @@ let dataFromPlanets = [
     Planet(name: "Mercury", portraitImage: Image.theme.planetMercury, gravityValue: 3.7, positionFromSun: "first", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundMercury, distanceFromSun: "57.9")
 ]
 
-
+let textForGravity = "Simulate gravity with an object inside this planet."
+let textForCollision = "Simulate a collision with two objects inside this planet."
+let textForLaunch = "Simulate an oblique launch with an object inside that planet."
