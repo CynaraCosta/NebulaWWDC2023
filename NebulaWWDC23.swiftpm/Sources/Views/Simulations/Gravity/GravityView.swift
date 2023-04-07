@@ -3,6 +3,9 @@ import SpriteKit
 
 struct GravityView: UIViewRepresentable {
     
+    @State var whichPlanet: Planet
+    var planetsViewModel = Planets()
+    
     func makeUIView(context: Context) -> SKView {
 
         // Crie uma SKView para exibir a cena SpriteKit
@@ -10,7 +13,7 @@ struct GravityView: UIViewRepresentable {
     
 
         // Crie a cena SpriteKit
-        let scene = GameSceneGravity(size: CGSize(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.29))
+        let scene = GameSceneGravity(backgroundImage: planetsViewModel.getBackgroundNameImage(planet: whichPlanet), ballImage: "ball", groundImage: planetsViewModel.getGroundNameImage(planet: whichPlanet), gravityValue: whichPlanet.gravityValue)
         
         scene.scaleMode = .aspectFill
         
@@ -32,9 +35,9 @@ struct GravityView: UIViewRepresentable {
     
 }
 
-struct GravityView_Previews: PreviewProvider {
-    static var previews: some View {
-        GravityView()
-            .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.29)
-    }
-}
+//struct GravityView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GravityView(whichPlanet: Plan)
+//            .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.29)
+//    }
+//}

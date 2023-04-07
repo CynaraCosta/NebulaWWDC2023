@@ -62,20 +62,21 @@ struct PlanetSimulation: View {
                         
                         if whichSimulation == "Gravity" {
                             
-                            GravityView()
-                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.29)
+                            GravityView(whichPlanet: whichPlanet)
+                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
+                            
+                            Text("You can simulate by clicking and dragging the ball!")
+                                .foregroundColor(Color.accentColor)
+                                .font(.custom(.vt323, size: 26))
+                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: 0.06, alignment: .leading)
+                            
                         } else if whichSimulation == "Collision" {
                             
                         } else {
                             
                         }
                         
-                        Button(action: {
-                            
-                        }) {
-                            Image.theme.simulateButton
-                                .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
-                        }
+                        
                         
                     }
                     

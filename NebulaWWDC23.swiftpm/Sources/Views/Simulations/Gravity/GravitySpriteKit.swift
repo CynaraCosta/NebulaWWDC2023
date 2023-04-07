@@ -5,23 +5,43 @@ class GameSceneGravity: SKScene {
     
     var ball: SKSpriteNode!
     
+    let backgroundImage: String
+    let ballImage: String
+    let groundImage: String
+    let gravityValue: Float
+    
+    init(backgroundImage: String, ballImage: String, groundImage: String, gravityValue: Float) {
+        self.backgroundImage = backgroundImage
+        self.ballImage = ballImage
+        self.groundImage = groundImage
+        self.gravityValue = gravityValue
+        
+        super.init(size: CGSize(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355))
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
     override func didMove(to view: SKView) {
         
         
-        let backgroundImage = SKSpriteNode(imageNamed: "background-earth")
+        let backgroundImage = SKSpriteNode(imageNamed: backgroundImage)
         backgroundImage.scale(to: size)
         backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         addChild(backgroundImage)
         
-        physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
+        physicsWorld.gravity = CGVector(dx: 0, dy: Int(-gravityValue))
         
-        ball = SKSpriteNode(imageNamed: "ball")
+        ball = SKSpriteNode(imageNamed: ballImage)
         ball.position = CGPoint(x: Int(size.width) / 2, y: 400)
         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width/2.0)
         ball.physicsBody?.affectedByGravity = true
         ball.physicsBody?.restitution = 0.5
         
-        let ground = SKSpriteNode(imageNamed: "ground-earth")
+        let ground = SKSpriteNode(imageNamed: groundImage)
         let groundWidth = size.width * 1/3
         let groundHeight = ground.size.height * 1.5
         
@@ -89,6 +109,6 @@ class GameSceneGravity: SKScene {
         }
         
     }
-
+    
     
 }
