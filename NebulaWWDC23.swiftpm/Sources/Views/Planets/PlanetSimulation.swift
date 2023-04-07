@@ -11,7 +11,6 @@ struct PlanetSimulation: View {
     
     @State var whichSimulation: String
     @State var whichPlanet: Planet
-    @State var shouldUpdate = false
     var planetsViewModel = Planets()
     
     var body: some View {
@@ -62,7 +61,8 @@ struct PlanetSimulation: View {
                         //
                         
                         if whichSimulation == "Gravity" {
-                            GravityView(whichPlanet: whichPlanet, shouldUpdate: shouldUpdate)
+                            
+                            GravityView()
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.29)
                         } else if whichSimulation == "Collision" {
                             
@@ -71,7 +71,7 @@ struct PlanetSimulation: View {
                         }
                         
                         Button(action: {
-                            self.shouldUpdate.toggle()
+                            
                         }) {
                             Image.theme.simulateButton
                                 .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
