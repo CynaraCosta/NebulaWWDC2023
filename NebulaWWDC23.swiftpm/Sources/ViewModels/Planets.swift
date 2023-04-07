@@ -56,6 +56,16 @@ class Planets: ObservableObject {
         return textForLaunch
     }
     
+    func getBackgroundNameImage(planet: Planet) -> String {
+        let nameBackgroundImage = "background-\(planet.name.lowercased())"
+        return nameBackgroundImage
+    }
+    
+    func getGroundNameImage(planet: Planet) -> String {
+        let nameBackgroundImage = "ground-\(planet.name.lowercased())"
+        return nameBackgroundImage
+    }
+    
 }
 
 let dataFromPlanets = [

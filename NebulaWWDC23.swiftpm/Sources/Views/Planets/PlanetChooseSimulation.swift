@@ -11,6 +11,9 @@ struct PlanetChooseSimulation: View {
     
     @State var namePlanet: String
     var planetsViewModel = Planets()
+    @State var isGravitySelected = false
+    @State var isCollisionSelected = false
+    @State var isLaunchSelected = false
     
     var body: some View {
         ZStack {
@@ -27,7 +30,7 @@ struct PlanetChooseSimulation: View {
                     Image.theme.backgroundDetailPlanet
                         .resizable()
                         .scaledToFit()
-                    .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.65)
+                        .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.65)
                     
                     VStack (spacing: 32) {
                         
@@ -52,8 +55,16 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            Image.theme.simulateButton
-                                .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Gravity", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                                           isActive: $isGravitySelected,
+                                           label: {
+                                Button(action: {
+                                    isGravitySelected.toggle()
+                                }) {
+                                    Image.theme.simulateButton
+                                        .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                                }
+                            })
                             
                         }
                         .frame(width: UIScreen.getScreenWidth() * 0.7, height: UIScreen.getScreenHeight() * 0.12)
@@ -75,8 +86,16 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            Image.theme.simulateButton
-                                .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Collision", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                                           isActive: $isCollisionSelected,
+                                           label: {
+                                Button(action: {
+                                    isCollisionSelected.toggle()
+                                }) {
+                                    Image.theme.simulateButton
+                                        .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                                }
+                            })
                             
                         }
                         .frame(width: UIScreen.getScreenWidth() * 0.7, height: UIScreen.getScreenHeight() * 0.12)
@@ -97,8 +116,16 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            Image.theme.simulateButton
-                                .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Launch", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                                           isActive: $isLaunchSelected,
+                                           label: {
+                                Button(action: {
+                                    isLaunchSelected.toggle()
+                                }) {
+                                    Image.theme.simulateButton
+                                        .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
+                                }
+                            })
                             
                         }
                         .frame(width: UIScreen.getScreenWidth() * 0.7, height: UIScreen.getScreenHeight() * 0.12)
@@ -111,9 +138,9 @@ struct PlanetChooseSimulation: View {
         }
     }
 }
-    
-    struct PlanetChooseSimulation_Previews: PreviewProvider {
-        static var previews: some View {
-            PlanetChooseSimulation(namePlanet: "Earth")
-        }
+
+struct PlanetChooseSimulation_Previews: PreviewProvider {
+    static var previews: some View {
+        PlanetChooseSimulation(namePlanet: "Earth")
     }
+}
