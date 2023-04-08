@@ -104,7 +104,7 @@ struct PlanetChooseSimulation: View {
                             
                             VStack (alignment: .center, spacing: -16){
                                 
-                                Text("Launch")
+                                Text("Impulse")
                                     .font(.custom(.vt323, size: 48))
                                     .foregroundColor(Color.theme.accentInitColor)
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)

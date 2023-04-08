@@ -71,7 +71,8 @@ struct PlanetSimulation: View {
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: 0.06, alignment: .leading)
                             
                         } else if whichSimulation == "Collision" {
-                            
+                            CollisionView(whichPlanet: whichPlanet)
+                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
                         } else {
                             
                         }
@@ -90,6 +91,6 @@ struct PlanetSimulation: View {
 
 struct PlanetSimulation_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetSimulation(whichSimulation: "Gravity", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6"))
+        PlanetSimulation(whichSimulation: "Collision", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth))
     }
 }

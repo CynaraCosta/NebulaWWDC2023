@@ -10,9 +10,10 @@ struct Planet: Identifiable {
     let groundImage: Image
     let backgroundImage: Image
     let disntaceFromSun: String
+    let groundExtended: Image
     
     
-    init(id: String = UUID().uuidString, name: String, portraitImage: Image, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String) {
+    init(id: String = UUID().uuidString, name: String, portraitImage: Image, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String, groundExtended: Image) {
         self.id = UUID().uuidString
         self.name = name
         self.portraitImage = portraitImage
@@ -21,6 +22,7 @@ struct Planet: Identifiable {
         self.groundImage = groundImage
         self.backgroundImage = backgroundImage
         self.disntaceFromSun = distanceFromSun
+        self.groundExtended = groundExtended
     }
     
     

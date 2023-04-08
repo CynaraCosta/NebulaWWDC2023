@@ -24,7 +24,6 @@ class GameSceneGravity: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     override func didMove(to view: SKView) {
         
         

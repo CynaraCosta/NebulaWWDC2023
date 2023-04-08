@@ -8,9 +8,9 @@ class Planets: ObservableObject {
         self.planets = dataFromPlanets
     }
     
-    func addPlanet(name: String, portraitImage: Image, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String) {
+    func addPlanet(name: String, portraitImage: Image, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String, groundExtended: Image) {
         
-        let newPlanet = Planet(name: name, portraitImage: portraitImage, gravityValue: gravityValue, positionFromSun: positionFromSun, groundImage: groundImage, backgroundImage: backgroundImage, distanceFromSun: distanceFromSun)
+        let newPlanet = Planet(name: name, portraitImage: portraitImage, gravityValue: gravityValue, positionFromSun: positionFromSun, groundImage: groundImage, backgroundImage: backgroundImage, distanceFromSun: distanceFromSun, groundExtended: groundExtended)
         
         planets.append(newPlanet)
         
@@ -53,7 +53,7 @@ class Planets: ObservableObject {
     }
     
     func getTextForLaunch() -> String {
-        return textForLaunch
+        return textForImpulse
     }
     
     func getBackgroundNameImage(planet: Planet) -> String {
@@ -66,14 +66,19 @@ class Planets: ObservableObject {
         return nameBackgroundImage
     }
     
+    func getGroundExtendedNameImage(planet: Planet) -> String {
+        let nameBackgroundImage = "ground-extended-\(planet.name.lowercased())"
+        return nameBackgroundImage
+    }
+    
 }
 
 let dataFromPlanets = [
-    Planet(name: "Jupiter", portraitImage: Image.theme.planetJupiter, gravityValue: 27.8, positionFromSun: "fifth", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundJupiter, distanceFromSun: "778"),
-    Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6"),
-    Planet(name: "Mercury", portraitImage: Image.theme.planetMercury, gravityValue: 3.7, positionFromSun: "first", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundMercury, distanceFromSun: "57.9")
+    Planet(name: "Jupiter", portraitImage: Image.theme.planetJupiter, gravityValue: 27.8, positionFromSun: "fifth", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundJupiter, distanceFromSun: "778", groundExtended: Image.theme.groundEarth),
+    Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth),
+    Planet(name: "Mercury", portraitImage: Image.theme.planetMercury, gravityValue: 3.7, positionFromSun: "first", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundMercury, distanceFromSun: "57.9", groundExtended: Image.theme.groundEarth)
 ]
 
 let textForGravity = "Simulate gravity with an object inside this planet."
 let textForCollision = "Simulate a collision with two objects inside this planet."
-let textForLaunch = "Simulate an oblique launch with an object inside that planet."
+let textForImpulse = "simulate applying impulses to an object and see the physics involved"

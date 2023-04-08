@@ -23,4 +23,5 @@ struct ImageTheme {
     let groundEarth = Image("ground-earth")
     let rectText = Image("rect-text")
     let backgroundDetailPlanet = Image("back-planet")
+    let groundExtendedEarth = Image("ground-extended-earth")
 }
