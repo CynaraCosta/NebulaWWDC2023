@@ -105,7 +105,12 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-gravity-earth-4")!,
         UIImage(named: "frame-gravity-earth-5")!,
     ]),
-    AnimationDictType(planet: "Earth", simulation: "Collision", imagesForGif: []),
+    AnimationDictType(planet: "Earth", simulation: "Collision", imagesForGif: [
+        UIImage(named: "frame-collision-earth-1")!,
+        UIImage(named: "frame-collision-earth-2")!,
+        UIImage(named: "frame-collision-earth-3")!,
+        UIImage(named: "frame-collision-earth-4")!,
+    ]),
     AnimationDictType(planet: "Jupiter", simulation: "Gravity", imagesForGif: [
         UIImage(named: "frame-gravity-jupiter-1")!,
         UIImage(named: "frame-gravity-jupiter-2")!,
@@ -114,7 +119,13 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-gravity-jupiter-5")!,
 
     ]),
-    AnimationDictType(planet: "Jupiter", simulation: "Collision", imagesForGif: []),
+    AnimationDictType(planet: "Jupiter", simulation: "Collision", imagesForGif: [
+        UIImage(named: "frame-collision-jupiter-1")!,
+        UIImage(named: "frame-collision-jupiter-2")!,
+        UIImage(named: "frame-collision-jupiter-3")!,
+        UIImage(named: "frame-collision-jupiter-4")!,
+    ]),
+    
     AnimationDictType(planet: "Mercury", simulation: "Gravity", imagesForGif: [
         UIImage(named: "frame-gravity-mercury-1")!,
         UIImage(named: "frame-gravity-mercury-2")!,
@@ -123,5 +134,10 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-gravity-mercury-5")!,
 
     ]),
-    AnimationDictType(planet: "Mercury", simulation: "Collision", imagesForGif: [])
+    AnimationDictType(planet: "Mercury", simulation: "Collision", imagesForGif: [
+        UIImage(named: "frame-collision-mercury-1")!,
+        UIImage(named: "frame-collision-mercury-2")!,
+        UIImage(named: "frame-collision-mercury-3")!,
+        UIImage(named: "frame-collision-mercury-4")!,
+    ])
 ]
