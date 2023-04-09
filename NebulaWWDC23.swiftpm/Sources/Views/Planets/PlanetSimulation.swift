@@ -31,12 +31,12 @@ struct PlanetSimulation: View {
                         .scaledToFit()
                         .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.65)
                     
-                    VStack (spacing: 32) {
+                    VStack (spacing: 24) {
                         
                         Text(planetsViewModel.whichPlanet(named: whichPlanet.name)!.name)
                             .foregroundColor(Color.accentColor)
                             .font(.custom(.vt323, size: 96))
-                        .frame(width: UIScreen.getScreenWidth() * 0.64, alignment: .leading)
+                            .frame(width: UIScreen.getScreenWidth() * 0.64, alignment: .leading)
                         
                         HStack () {
                             
@@ -54,21 +54,15 @@ struct PlanetSimulation: View {
                                     .frame(width: UIScreen.getScreenWidth() * 0.37, height: UIScreen.getScreenHeight() * 0.04, alignment: .trailing)
                             }
                             
-
+                            
                         }
                         .frame(width: UIScreen.getScreenWidth() * 0.64, height: UIScreen.getScreenHeight() * 0.04)
                         
-                        //
                         
                         if whichSimulation == "Gravity" {
                             
                             GravityView(whichPlanet: whichPlanet)
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
-                            
-                            Text("You can simulate by clicking and dragging the ball!")
-                                .foregroundColor(Color.accentColor)
-                                .font(.custom(.vt323, size: 26))
-                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: 0.06, alignment: .leading)
                             
                         } else if whichSimulation == "Collision" {
                             CollisionView(whichPlanet: whichPlanet)
@@ -77,7 +71,10 @@ struct PlanetSimulation: View {
                             
                         }
                         
-                        
+                        Text("This simulation does not consider other factor like: density, atmosphere and some others!")
+                            .foregroundColor(Color.accentColor)
+                            .font(.custom(.inconsolateRegular, size: 20))
+                            .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.04, alignment: .leading)
                         
                     }
                     

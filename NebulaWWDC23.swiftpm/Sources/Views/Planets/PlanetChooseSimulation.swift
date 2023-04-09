@@ -55,7 +55,7 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Gravity", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Gravity", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
                                            isActive: $isGravitySelected,
                                            label: {
                                 Button(action: {
@@ -86,7 +86,7 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Collision", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Collision", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
                                            isActive: $isCollisionSelected,
                                            label: {
                                 Button(action: {
@@ -116,7 +116,7 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Launch", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Launch", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
                                            isActive: $isLaunchSelected,
                                            label: {
                                 Button(action: {

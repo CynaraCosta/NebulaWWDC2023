@@ -71,6 +71,14 @@ class Planets: ObservableObject {
         return nameBackgroundImage
     }
     
+    func imagesForGif(planet: String, simulation: String) -> [UIImage]? {
+        if let animation = animationsFrameForEachSimulationPlanet.first(where: { $0.planet == planet && $0.simulation == simulation }) {
+            return animation.imagesForGif
+        } else {
+            return nil
+        }
+    }
+    
 }
 
 let dataFromPlanets = [
@@ -82,3 +90,38 @@ let dataFromPlanets = [
 let textForGravity = "Simulate gravity with an object inside this planet."
 let textForCollision = "Simulate a collision with two objects inside this planet."
 let textForImpulse = "simulate applying impulses to an object and see the physics involved"
+
+struct AnimationDictType {
+    var planet: String
+    var simulation: String
+    var imagesForGif: [UIImage]
+}
+
+let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
+    AnimationDictType(planet: "Earth",simulation: "Gravity", imagesForGif: [
+        UIImage(named: "frame-gravity-earth-1")!,
+        UIImage(named: "frame-gravity-earth-2")!,
+        UIImage(named: "frame-gravity-earth-3")!,
+        UIImage(named: "frame-gravity-earth-4")!,
+        UIImage(named: "frame-gravity-earth-5")!,
+    ]),
+    AnimationDictType(planet: "Earth", simulation: "Collision", imagesForGif: []),
+    AnimationDictType(planet: "Jupiter", simulation: "Gravity", imagesForGif: [
+        UIImage(named: "frame-gravity-jupiter-1")!,
+        UIImage(named: "frame-gravity-jupiter-2")!,
+        UIImage(named: "frame-gravity-jupiter-3")!,
+        UIImage(named: "frame-gravity-jupiter-4")!,
+        UIImage(named: "frame-gravity-jupiter-5")!,
+
+    ]),
+    AnimationDictType(planet: "Jupiter", simulation: "Collision", imagesForGif: []),
+    AnimationDictType(planet: "Mercury", simulation: "Gravity", imagesForGif: [
+        UIImage(named: "frame-gravity-mercury-1")!,
+        UIImage(named: "frame-gravity-mercury-2")!,
+        UIImage(named: "frame-gravity-mercury-3")!,
+        UIImage(named: "frame-gravity-mercury-4")!,
+        UIImage(named: "frame-gravity-mercury-5")!,
+
+    ]),
+    AnimationDictType(planet: "Mercury", simulation: "Collision", imagesForGif: [])
+]
