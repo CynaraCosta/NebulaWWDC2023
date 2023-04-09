@@ -22,7 +22,7 @@ struct OnboardingSimulationView: View {
                     Image.theme.backgroundDetailPlanet
                         .resizable()
                         .scaledToFit()
-                        .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.65)
+                        .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.64)
                     
                     VStack (spacing: 32) {
                         
