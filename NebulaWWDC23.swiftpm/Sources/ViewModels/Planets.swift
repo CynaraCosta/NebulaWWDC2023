@@ -98,6 +98,7 @@ struct AnimationDictType {
 }
 
 let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
+    
     AnimationDictType(planet: "Earth",simulation: "Gravity", imagesForGif: [
         UIImage(named: "frame-gravity-earth-1")!,
         UIImage(named: "frame-gravity-earth-2")!,
@@ -105,12 +106,21 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-gravity-earth-4")!,
         UIImage(named: "frame-gravity-earth-5")!,
     ]),
+    
     AnimationDictType(planet: "Earth", simulation: "Collision", imagesForGif: [
         UIImage(named: "frame-collision-earth-1")!,
         UIImage(named: "frame-collision-earth-2")!,
         UIImage(named: "frame-collision-earth-3")!,
         UIImage(named: "frame-collision-earth-4")!,
     ]),
+    
+    AnimationDictType(planet: "Earth", simulation: "Impulse", imagesForGif: [
+        UIImage(named: "frame-collision-earth-1")!,
+        UIImage(named: "frame-collision-earth-2")!,
+        UIImage(named: "frame-collision-earth-3")!,
+        UIImage(named: "frame-collision-earth-4")!,
+    ]),
+    
     AnimationDictType(planet: "Jupiter", simulation: "Gravity", imagesForGif: [
         UIImage(named: "frame-gravity-jupiter-1")!,
         UIImage(named: "frame-gravity-jupiter-2")!,
@@ -126,6 +136,14 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-collision-jupiter-4")!,
     ]),
     
+    
+    AnimationDictType(planet: "Jupiter", simulation: "Impulse", imagesForGif: [
+        UIImage(named: "frame-collision-earth-1")!,
+        UIImage(named: "frame-collision-earth-2")!,
+        UIImage(named: "frame-collision-earth-3")!,
+        UIImage(named: "frame-collision-earth-4")!,
+    ]),
+    
     AnimationDictType(planet: "Mercury", simulation: "Gravity", imagesForGif: [
         UIImage(named: "frame-gravity-mercury-1")!,
         UIImage(named: "frame-gravity-mercury-2")!,
@@ -139,5 +157,12 @@ let animationsFrameForEachSimulationPlanet: [AnimationDictType] = [
         UIImage(named: "frame-collision-mercury-2")!,
         UIImage(named: "frame-collision-mercury-3")!,
         UIImage(named: "frame-collision-mercury-4")!,
-    ])
+    ]),
+    
+    AnimationDictType(planet: "Mercury", simulation: "Impulse", imagesForGif: [
+        UIImage(named: "frame-collision-earth-1")!,
+        UIImage(named: "frame-collision-earth-2")!,
+        UIImage(named: "frame-collision-earth-3")!,
+        UIImage(named: "frame-collision-earth-4")!,
+    ]),
 ]

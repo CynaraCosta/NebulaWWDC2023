@@ -117,7 +117,7 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Launch", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Impulse", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
                                            isActive: $isLaunchSelected,
                                            label: {
                                 Button(action: {

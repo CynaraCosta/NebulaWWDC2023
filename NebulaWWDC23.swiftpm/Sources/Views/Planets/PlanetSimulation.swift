@@ -67,8 +67,9 @@ struct PlanetSimulation: View {
                         } else if whichSimulation == "Collision" {
                             CollisionView(whichPlanet: whichPlanet)
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
-                        } else {
-                            
+                        } else if whichSimulation == "Impulse" {
+                            ImpulseView(whichPlanet: whichPlanet)
+                                .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
                         }
                         
                         Text("This simulation does not consider other factor like: density, atmosphere and some others!")
