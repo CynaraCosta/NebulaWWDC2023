@@ -18,14 +18,16 @@ struct HomeView: View {
             
             VStack (spacing: 56) {
                 
-                Button(action: {
-                    isPlusButtonSelected.toggle()
-                }) {
-                    Image.theme.plusButton
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
-                }
+                NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
+                    Button(action: {
+                        isPlusButtonSelected.toggle()
+                    }) {
+                        Image.theme.plusButton
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
+                    }
+                })
                 
                 NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Jupiter")!.name),
                                isActive: $isJupiterSelected,

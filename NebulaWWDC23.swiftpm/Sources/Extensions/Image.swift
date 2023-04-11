@@ -7,6 +7,7 @@ extension Image {
 }
 
 struct ImageTheme {
+    let samplePlanet = Image("sample-planet")
     let background = Image("background-space")
     let nebulaText = Image("nebula-name")
     let pressStart = Image("press-start")
@@ -28,4 +29,6 @@ struct ImageTheme {
     let groundExtendedEarth = Image("ground-extended-earth")
     let groundExtendedJupiter = Image("ground-extended-jupiter")
     let groundExtendedMercury = Image("ground-extended-mercury")
+    let arrowRight = Image("arrow-right")
+    let arrowLeft = Image("arrow-left")
 }
