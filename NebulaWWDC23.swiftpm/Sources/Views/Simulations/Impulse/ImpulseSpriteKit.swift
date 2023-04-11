@@ -83,7 +83,7 @@ class ImpulseSpriteKit: SKScene, SKPhysicsContactDelegate {
         hoopNode = SKSpriteNode(imageNamed: "hoop")
         hoopNode.name = "hoop"
         hoopNode.size = CGSize(width: UIScreen.getScreenWidth() * 0.1, height: UIScreen.getScreenHeight() * 0.2)
-        hoopNode.position = CGPoint(x: 100, y:  100 + groundHeight)
+        hoopNode.position = CGPoint(x: 100, y:  90 + groundHeight)
         hoopNode.physicsBody = SKPhysicsBody(rectangleOf: hoopNode.size)
         hoopNode.physicsBody?.affectedByGravity = false
         hoopNode.physicsBody?.isDynamic = false
