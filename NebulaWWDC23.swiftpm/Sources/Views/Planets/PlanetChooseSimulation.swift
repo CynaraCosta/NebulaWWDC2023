@@ -50,7 +50,7 @@ struct PlanetChooseSimulation: View {
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                                 
                                 Text(planetsViewModel.getTextForGravity())
-                                    .font(.custom(.inconsolateRegular, size: 24))
+                                    .font(.custom(.inconsolateRegular, size: 20))
                                     .foregroundColor(Color.theme.accentInitColor)
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                             }
@@ -81,7 +81,7 @@ struct PlanetChooseSimulation: View {
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                                 
                                 Text(planetsViewModel.getTextForCollision())
-                                    .font(.custom(.inconsolateRegular, size: 24))
+                                    .font(.custom(.inconsolateRegular, size: 18))
                                     .foregroundColor(Color.theme.accentInitColor)
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                             }
@@ -111,7 +111,7 @@ struct PlanetChooseSimulation: View {
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                                 
                                 Text(planetsViewModel.getTextForLaunch())
-                                    .font(.custom(.inconsolateRegular, size: 24))
+                                    .font(.custom(.inconsolateRegular, size: 18))
                                     .foregroundColor(Color.theme.accentInitColor)
                                     .frame(width: UIScreen.getScreenWidth() * 0.3, height: UIScreen.getScreenHeight() * 0.07, alignment: .leading)
                             }
