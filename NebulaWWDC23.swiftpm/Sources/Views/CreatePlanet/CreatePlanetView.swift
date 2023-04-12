@@ -3,11 +3,15 @@ import Combine
 
 
 struct CreatePlanetView: View {
+//    @StateObject var CreateNewPlanetViewModel: CreateNewPlanetViewModel
     @State private var namePlanet: String = ""
     @State private var gravityPlanet: String = ""
     @State private var currentIndex: Int = 0
     
     @State private var validateFields = true
+    @State private var validateName = true
+    
+    @State var createNewPlanetVM = CreateNewPlanetViewModel()
     
     let images = ["sample-planet"]
     
@@ -17,7 +21,7 @@ struct CreatePlanetView: View {
                 .resizable()
                 .ignoresSafeArea(.all)
             
-            VStack (spacing: 72) {
+            VStack (spacing: 56) {
                 
                 HStack (spacing: 64) {
                     
@@ -68,10 +72,9 @@ struct CreatePlanetView: View {
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                             .onReceive(Just(namePlanet)) { newValue in
-                                let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-&*ˆ%$#@!+=';"
-                                let filtered = newValue.filter { allowedCharacters.contains($0) }
-                                if filtered != newValue {
-                                    self.namePlanet = filtered
+                                let filteredValue = createNewPlanetVM.filterString(newValue, allowedCharacters: createNewPlanetVM.allowedCharactersForName)
+                                if filteredValue != newValue {
+                                    self.namePlanet = filteredValue
                                 }
                                 
                             }
@@ -99,10 +102,9 @@ struct CreatePlanetView: View {
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                             .onReceive(Just(gravityPlanet)) { newValue in
-                                let allowedCharacters = "0123456789."
-                                let filtered = newValue.filter { allowedCharacters.contains($0) }
-                                if filtered != newValue {
-                                    self.gravityPlanet = filtered
+                                let filteredValue = createNewPlanetVM.filterString(newValue, allowedCharacters: createNewPlanetVM.allowedCharactersForGravityValue)
+                                if filteredValue != newValue {
+                                    self.gravityPlanet = filteredValue
                                 }
                                 
                             }
@@ -113,12 +115,22 @@ struct CreatePlanetView: View {
                     
                 }
                 
-                if !validateFields {
-                    Text("Please fill in all fields!")
-                        .font(.custom(.vt323, size: 20))
-                        .foregroundColor(Color.red)
-                        .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.05, alignment: .leading)
+                VStack (spacing: 16) {
+                    if !validateFields {
+                        Text("Please fill in all fields!")
+                            .font(.custom(.vt323, size: 20))
+                            .foregroundColor(Color.red)
+                            .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.05, alignment: .leading)
+                    }
+                    
+                    if !validateName {
+                        Text("Be creative! You can choose any name you please, but Earth, Jupiter or Mercury are already between us...")
+                            .font(.custom(.vt323, size: 20))
+                            .foregroundColor(Color.red)
+                            .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.05, alignment: .leading)
+                    }
                 }
+                
                 
                 Button(action: {
                     if gravityPlanet == "" || namePlanet == ""{
@@ -126,6 +138,13 @@ struct CreatePlanetView: View {
                     } else {
                         validateFields = true
                     }
+                    
+                    if namePlanet == "Earth" || namePlanet == "Jupiter" || namePlanet == "Mercury" {
+                        validateName = false
+                    } else {
+                        validateName = true
+                    }
+                    
                 }) {
                     Image.theme.simulateButton
                         .resizable()
