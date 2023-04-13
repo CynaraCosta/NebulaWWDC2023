@@ -32,7 +32,7 @@ struct CreatePlanetView: View {
                         Image.theme.arrowLeft
                     }
                     
-                    Image(createNewPlanetViewModel.images[createNewPlanetViewModel.currentIndex])
+                    createNewPlanetViewModel.imagesPlanet[createNewPlanetViewModel.currentIndex]
                         .resizable()
                         .scaledToFit()
                     
@@ -135,13 +135,13 @@ struct CreatePlanetView: View {
                     if createNewPlanetViewModel.returnFromAddButton() {
                         planetViewModel.addPlanet(
                             name: createNewPlanetViewModel.namePlanet,
-                            portraitImage: Image(createNewPlanetViewModel.images[createNewPlanetViewModel.currentIndex]),
+                            portraitImage: createNewPlanetViewModel.imagesPlanet[createNewPlanetViewModel.currentIndex],
                             gravityValue: createNewPlanetViewModel.treatFloat(),
                             positionFromSun: "",
-                            groundImage: Image(""),
-                            backgroundImage: Image(""),
+                            groundImage: createNewPlanetViewModel.imagesGroundPlanet[createNewPlanetViewModel.currentIndex],
+                            backgroundImage: createNewPlanetViewModel.imagesBackgroundPlanet[createNewPlanetViewModel.currentIndex],
                             distanceFromSun: "",
-                            groundExtended: Image(""))
+                            groundExtended: createNewPlanetViewModel.imagesGroundExtendedPlanet[createNewPlanetViewModel.currentIndex])
                         homeViewModel.addNewPlanet.toggle()
                     }
                     

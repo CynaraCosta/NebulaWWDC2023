@@ -10,7 +10,27 @@ class CreateNewPlanetViewModel: ObservableObject {
     @Published var validateName = true
     @Published var backToHome = false
     
-    @Published var images = ["sample-planet"]
+    @Published var imagesPlanet: [Image] = [
+        Image.theme.samplePlanetBlue,
+        Image.theme.samplePlanetRed,
+        Image.theme.samplePlanetGreen
+    ]
+    @Published var imagesGroundPlanet: [Image] = [
+        Image.theme.groundSamplePlanetBlue,
+        Image.theme.groundSamplePlanetRed,
+        Image.theme.groundSamplePlanetGreen
+    ]
+    @Published var imagesGroundExtendedPlanet: [Image] = [
+        Image.theme.groundExtendedSamplePlanetBlue,
+        Image.theme.groundExtendedSamplePlanetRed,
+        Image.theme.groundExtendedSamplePlanetGreen
+    ]
+    
+    @Published var imagesBackgroundPlanet: [Image] = [
+        Image.theme.backgroundSamplePlanetBlue,
+        Image.theme.backgroundSamplePlanetRed,
+        Image.theme.backgroundSamplePlanetGreen
+    ]
     
     let allowedCharactersForName = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-&*ˆ%$#@!+=';"
     let allowedCharactersForGravityValue = "0123456789."
@@ -21,11 +41,11 @@ class CreateNewPlanetViewModel: ObservableObject {
     }
     
     func addCurrentIndexToGetNextImage() {
-        currentIndex = (currentIndex + 1) % images.count
+        currentIndex = (currentIndex + 1) % imagesPlanet.count
     }
     
     func removeCurrentIndexToGetPreviousImage() {
-        currentIndex = (currentIndex - 1 + images.count) % images.count
+        currentIndex = (currentIndex - 1 + imagesPlanet.count) % imagesPlanet.count
     }
     
     func returnFromAddButton() -> Bool {

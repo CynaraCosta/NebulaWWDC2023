@@ -7,7 +7,22 @@ extension Image {
 }
 
 struct ImageTheme {
-    let samplePlanet = Image("sample-planet")
+    
+    let samplePlanetBlue = Image("sample-planet-blue")
+    let groundSamplePlanetBlue = Image("ground-sample-planet-blue")
+    let groundExtendedSamplePlanetBlue = Image("ground-extended-sample-planet-blue")
+    let backgroundSamplePlanetBlue = Image("background-sample-planet-blue")
+    
+    let samplePlanetRed = Image("sample-planet-red")
+    let groundSamplePlanetRed = Image("ground-sample-planet-red")
+    let groundExtendedSamplePlanetRed = Image("ground-extended-sample-planet-red")
+    let backgroundSamplePlanetRed = Image("background-sample-planet-red")
+    
+    let samplePlanetGreen = Image("sample-planet-green")
+    let groundSamplePlanetGreen = Image("ground-sample-planet-green")
+    let groundExtendedSamplePlanetGreen = Image("ground-extended-sample-planet-green")
+    let backgroundSamplePlanetGreen = Image("background-sample-planet-green")
+    
     let background = Image("background-space")
     let nebulaText = Image("nebula-name")
     let pressStart = Image("press-start")
