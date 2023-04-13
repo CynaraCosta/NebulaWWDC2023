@@ -6,6 +6,15 @@ struct HomeView: View {
     @State var isJupiterSelected = false
     @State var isEarthSelected = false
     @State var isMercurySelected = false
+    @State var isNewPlanetSelected = false
+    
+    @StateObject private var homeViewModel: HomeViewModel
+    @StateObject private var planetViewModel: Planets
+    
+    init() {
+        _planetViewModel = StateObject(wrappedValue: Planets())
+        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
+    }
     
     var planetsViewModel = Planets()
     
@@ -18,22 +27,50 @@ struct HomeView: View {
             
             VStack (spacing: 56) {
                 
-                NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
-                    Button(action: {
-                        isPlusButtonSelected.toggle()
-                    }) {
-                        Image.theme.plusButton
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
-                    }
-                })
+                if !homeViewModel.addNewPlanet {
+                    NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
+                        Button(action: {
+                            isPlusButtonSelected.toggle()
+                        }) {
+
+                            Image.theme.plusButton
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
+
+                        }
+                    })
+                } else {
+                    NavigationLink(destination: StartView(), isActive: $homeViewModel.addNewPlanet, label: {
+                        Button(action: {
+                            
+                        }) {
+
+                            planetViewModel.planets[3].portraitImage
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
+
+                        }
+                    })
+                }
+                
+//                NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
+//                    Button(action: {
+//                        isPlusButtonSelected.toggle()
+//                    }) {
+//
+//                        Image.theme.plusButton
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
                 
                 NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Jupiter")!.name),
                                isActive: $isJupiterSelected,
                                label: {
                     Button(action: {
                         isJupiterSelected.toggle()
+                        print(homeViewModel.addNewPlanet)
                     }) {
                         Image.theme.planetJupiter
                             .resizable()

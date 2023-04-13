@@ -3,21 +3,19 @@ import Combine
 
 
 struct CreatePlanetView: View {
-//    @StateObject var CreateNewPlanetViewModel: CreateNewPlanetViewModel
-    @State private var namePlanet: String = ""
-    @State private var gravityPlanet: String = ""
-    @State private var currentIndex: Int = 0
+    @StateObject private var createNewPlanetViewModel: CreateNewPlanetViewModel
+    @StateObject private var planetViewModel: Planets
+    @StateObject private var homeViewModel: HomeViewModel
     
-    @State private var validateFields = true
-    @State private var validateName = true
-    
-    @State var createNewPlanetVM = CreateNewPlanetViewModel()
-    
-    let images = ["sample-planet"]
+    init() {
+        _createNewPlanetViewModel = StateObject(wrappedValue: CreateNewPlanetViewModel())
+        _planetViewModel = StateObject(wrappedValue: Planets())
+        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
+    }
     
     var body: some View {
         ZStack {
-            Image("background-space")
+            Image.theme.background
                 .resizable()
                 .ignoresSafeArea(.all)
             
@@ -28,13 +26,13 @@ struct CreatePlanetView: View {
                     Button(action: {
                         withAnimation {
                             
-                            currentIndex = (currentIndex - 1 + images.count) % images.count
+                            createNewPlanetViewModel.removeCurrentIndexToGetPreviousImage()
                         }
                     }) {
                         Image.theme.arrowLeft
                     }
                     
-                    Image(images[currentIndex])
+                    Image(createNewPlanetViewModel.images[createNewPlanetViewModel.currentIndex])
                         .resizable()
                         .scaledToFit()
                     
@@ -42,7 +40,7 @@ struct CreatePlanetView: View {
                     Button(action: {
                         withAnimation {
                             
-                            currentIndex = (currentIndex + 1) % images.count
+                            createNewPlanetViewModel.addCurrentIndexToGetNextImage()
                         }
                     }) {
                         
@@ -60,7 +58,7 @@ struct CreatePlanetView: View {
                         .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.04, alignment: .leading)
                     
                     ZStack(alignment: .leading) {
-                        TextField("", text: $namePlanet)
+                        TextField("", text: $createNewPlanetViewModel.namePlanet)
                             .padding()
                             .background(Color.clear)
                             .cornerRadius(8)
@@ -71,10 +69,10 @@ struct CreatePlanetView: View {
                             .foregroundColor(.white)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                            .onReceive(Just(namePlanet)) { newValue in
-                                let filteredValue = createNewPlanetVM.filterString(newValue, allowedCharacters: createNewPlanetVM.allowedCharactersForName)
+                            .onReceive(Just(createNewPlanetViewModel.namePlanet)) { newValue in
+                                let filteredValue = createNewPlanetViewModel.filterString(newValue, allowedCharacters: createNewPlanetViewModel.allowedCharactersForName)
                                 if filteredValue != newValue {
-                                    self.namePlanet = filteredValue
+                                    self.createNewPlanetViewModel.namePlanet = filteredValue
                                 }
                                 
                             }
@@ -89,7 +87,7 @@ struct CreatePlanetView: View {
                         .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.04, alignment: .leading)
                     
                     ZStack(alignment: .leading) {
-                        TextField("", text: $gravityPlanet)
+                        TextField("", text: $createNewPlanetViewModel.gravityPlanet)
                             .padding()
                             .background(Color.clear)
                             .cornerRadius(8)
@@ -101,10 +99,10 @@ struct CreatePlanetView: View {
                             .keyboardType(.decimalPad)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                            .onReceive(Just(gravityPlanet)) { newValue in
-                                let filteredValue = createNewPlanetVM.filterString(newValue, allowedCharacters: createNewPlanetVM.allowedCharactersForGravityValue)
+                            .onReceive(Just(createNewPlanetViewModel.gravityPlanet)) { newValue in
+                                let filteredValue = createNewPlanetViewModel.filterString(newValue, allowedCharacters: createNewPlanetViewModel.allowedCharactersForGravityValue)
                                 if filteredValue != newValue {
-                                    self.gravityPlanet = filteredValue
+                                    self.createNewPlanetViewModel.gravityPlanet = filteredValue
                                 }
                                 
                             }
@@ -116,14 +114,14 @@ struct CreatePlanetView: View {
                 }
                 
                 VStack (spacing: 16) {
-                    if !validateFields {
+                    if !createNewPlanetViewModel.validateFields {
                         Text("Please fill in all fields!")
                             .font(.custom(.vt323, size: 20))
                             .foregroundColor(Color.red)
                             .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.05, alignment: .leading)
                     }
                     
-                    if !validateName {
+                    if !createNewPlanetViewModel.validateName {
                         Text("Be creative! You can choose any name you please, but Earth, Jupiter or Mercury are already between us...")
                             .font(.custom(.vt323, size: 20))
                             .foregroundColor(Color.red)
@@ -131,18 +129,22 @@ struct CreatePlanetView: View {
                     }
                 }
                 
-                
+                NavigationLink(destination: HomeView(), isActive: $homeViewModel.addNewPlanet) {EmptyView()}
                 Button(action: {
-                    if gravityPlanet == "" || namePlanet == ""{
-                        validateFields = false
-                    } else {
-                        validateFields = true
-                    }
                     
-                    if namePlanet == "Earth" || namePlanet == "Jupiter" || namePlanet == "Mercury" {
-                        validateName = false
-                    } else {
-                        validateName = true
+                    // need to change the values
+                    
+                    if createNewPlanetViewModel.returnFromAddButton() {
+                        planetViewModel.addPlanet(
+                            name: createNewPlanetViewModel.namePlanet,
+                            portraitImage: Image(createNewPlanetViewModel.images[createNewPlanetViewModel.currentIndex]),
+                            gravityValue: createNewPlanetViewModel.treatFloat(),
+                            positionFromSun: "",
+                            groundImage: Image(""),
+                            backgroundImage: Image(""),
+                            distanceFromSun: "",
+                            groundExtended: Image(""))
+                        homeViewModel.alterAddNewPlanet()
                     }
                     
                 }) {
