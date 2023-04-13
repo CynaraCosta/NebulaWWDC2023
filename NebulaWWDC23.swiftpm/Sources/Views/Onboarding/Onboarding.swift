@@ -8,6 +8,9 @@ struct Onboarding: View {
     @State var planetOpacity = false
     @State var plusOpacity = false
     
+    @EnvironmentObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var planetsViewModel: Planets
+    
     var body: some View {
         
         ZStack {
@@ -43,7 +46,11 @@ struct Onboarding: View {
                     OnboardingTextComponent(phrase: onboardingViewModel.phrases[counterOnboarding])
                 }
                 
-                NavigationLink(destination: HomeView(), isActive: $shouldGoHome) {
+                NavigationLink(destination:
+                                HomeView()
+                                .environmentObject(homeViewModel)
+                                .environmentObject(planetsViewModel),
+                               isActive: $shouldGoHome) {
                     EmptyView()
                 }
                 

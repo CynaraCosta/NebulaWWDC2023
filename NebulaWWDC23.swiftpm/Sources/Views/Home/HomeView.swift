@@ -8,15 +8,15 @@ struct HomeView: View {
     @State var isMercurySelected = false
     @State var isNewPlanetSelected = false
     
-    @StateObject private var homeViewModel: HomeViewModel
-    @StateObject private var planetViewModel: Planets
+//    @StateObject var homeViewModel: HomeViewModel
+//    @StateObject var planetsViewModel: Planets
+    @EnvironmentObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var planetsViewModel: Planets
     
     init() {
-        _planetViewModel = StateObject(wrappedValue: Planets())
-        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
+//        _planetsViewModel = StateObject(wrappedValue: Planets())
+//        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
     }
-    
-    var planetsViewModel = Planets()
     
     var body: some View {
         
@@ -28,7 +28,10 @@ struct HomeView: View {
             VStack (spacing: 56) {
                 
                 if !homeViewModel.addNewPlanet {
-                    NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
+                    NavigationLink(destination:
+                                    CreatePlanetView()
+                        .environmentObject(homeViewModel)
+                        .environmentObject(planetsViewModel), isActive: $isPlusButtonSelected, label: {
                         Button(action: {
                             isPlusButtonSelected.toggle()
                         }) {
@@ -41,12 +44,12 @@ struct HomeView: View {
                         }
                     })
                 } else {
-                    NavigationLink(destination: StartView(), isActive: $homeViewModel.addNewPlanet, label: {
+                    NavigationLink(destination: StartView(), isActive: $isNewPlanetSelected, label: {
                         Button(action: {
-                            
+                            isNewPlanetSelected.toggle()
                         }) {
 
-                            planetViewModel.planets[3].portraitImage
+                            planetsViewModel.planets[3].portraitImage
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
@@ -70,7 +73,6 @@ struct HomeView: View {
                                label: {
                     Button(action: {
                         isJupiterSelected.toggle()
-                        print(homeViewModel.addNewPlanet)
                     }) {
                         Image.theme.planetJupiter
                             .resizable()

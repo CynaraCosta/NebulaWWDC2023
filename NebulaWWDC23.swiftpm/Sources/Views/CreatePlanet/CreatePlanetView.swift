@@ -3,14 +3,14 @@ import Combine
 
 
 struct CreatePlanetView: View {
-    @StateObject private var createNewPlanetViewModel: CreateNewPlanetViewModel
-    @StateObject private var planetViewModel: Planets
-    @StateObject private var homeViewModel: HomeViewModel
+    
+    @StateObject var createNewPlanetViewModel: CreateNewPlanetViewModel
+    
+    @EnvironmentObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var planetViewModel: Planets
     
     init() {
         _createNewPlanetViewModel = StateObject(wrappedValue: CreateNewPlanetViewModel())
-        _planetViewModel = StateObject(wrappedValue: Planets())
-        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
     }
     
     var body: some View {
@@ -144,7 +144,7 @@ struct CreatePlanetView: View {
                             backgroundImage: Image(""),
                             distanceFromSun: "",
                             groundExtended: Image(""))
-                        homeViewModel.alterAddNewPlanet()
+                        homeViewModel.addNewPlanet.toggle()
                     }
                     
                 }) {

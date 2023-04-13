@@ -3,6 +3,8 @@ import SwiftUI
 struct StartView: View {
     
     @State var isAtMaxScale = false
+    @EnvironmentObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var planetsViewModel: Planets
     
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     private let maxScale: CGFloat = 1.1
@@ -25,7 +27,11 @@ struct StartView: View {
                         .foregroundColor(Color.theme.lightGreen)
                         .multilineTextAlignment(.center)
                     
-                    NavigationLink(destination: Onboarding()) {
+                    NavigationLink(destination:
+                                    Onboarding()
+                                        .environmentObject(homeViewModel)
+                                        .environmentObject(planetsViewModel)
+                    ) {
                         Image.theme.pressStart
                             .resizable()
                             .scaledToFit()

@@ -8,6 +8,7 @@ class CreateNewPlanetViewModel: ObservableObject {
     
     @Published var validateFields = true
     @Published var validateName = true
+    @Published var backToHome = false
     
     @Published var images = ["sample-planet"]
     
