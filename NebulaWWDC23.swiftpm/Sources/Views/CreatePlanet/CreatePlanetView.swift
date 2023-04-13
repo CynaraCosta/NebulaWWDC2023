@@ -109,8 +109,6 @@ struct CreatePlanetView: View {
                             .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.056, alignment: .leading)
                         
                     }
-                    
-                    
                 }
                 
                 VStack (spacing: 16) {

@@ -10,7 +10,6 @@ struct MyApp: App {
         CustomFonts.register()
     }
     
-    
     var body: some Scene {
         WindowGroup {
             StartView()

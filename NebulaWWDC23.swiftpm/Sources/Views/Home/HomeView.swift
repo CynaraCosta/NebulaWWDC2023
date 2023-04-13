@@ -8,15 +8,8 @@ struct HomeView: View {
     @State var isMercurySelected = false
     @State var isNewPlanetSelected = false
     
-//    @StateObject var homeViewModel: HomeViewModel
-//    @StateObject var planetsViewModel: Planets
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var planetsViewModel: Planets
-    
-    init() {
-//        _planetsViewModel = StateObject(wrappedValue: Planets())
-//        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
-    }
     
     var body: some View {
         
@@ -57,16 +50,6 @@ struct HomeView: View {
                         }
                     })
                 }
-                
-//                NavigationLink(destination: CreatePlanetView(), isActive: $isPlusButtonSelected, label: {
-//                    Button(action: {
-//                        isPlusButtonSelected.toggle()
-//                    }) {
-//
-//                        Image.theme.plusButton
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: UIScreen.getScreenWidth() * 0.2, height: UIScreen.getScreenHeight() * 0.14)
                 
                 NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Jupiter")!.name),
                                isActive: $isJupiterSelected,
