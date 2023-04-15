@@ -56,6 +56,7 @@ struct PlanetChooseSimulation: View {
                                     isGravitySelected.toggle()
                                 }) {
                                     Image.theme.simulateButton
+                                        .resizable()
                                         .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
                                 }
                             })
@@ -87,6 +88,7 @@ struct PlanetChooseSimulation: View {
                                     isCollisionSelected.toggle()
                                 }) {
                                     Image.theme.simulateButton
+                                        .resizable()
                                         .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
                                 }
                             })
@@ -117,6 +119,7 @@ struct PlanetChooseSimulation: View {
                                     isLaunchSelected.toggle()
                                 }) {
                                     Image.theme.simulateButton
+                                        .resizable()
                                         .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
                                 }
                             })

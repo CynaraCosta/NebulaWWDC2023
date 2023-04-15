@@ -48,6 +48,7 @@ struct OnboardingSimulationView: View {
                                 isButtonSelected.toggle()
                             }) {
                                 Image.theme.simulateButton
+                                    .resizable()
                                     .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
                             }
                         })
