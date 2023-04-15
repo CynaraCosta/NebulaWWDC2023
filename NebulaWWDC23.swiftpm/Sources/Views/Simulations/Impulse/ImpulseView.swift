@@ -4,14 +4,27 @@ import SwiftUI
 struct ImpulseView: UIViewRepresentable {
     
     @State var whichPlanet: Planet
-    var planetsViewModel = Planets()
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     func makeUIView(context: Context) -> SKView {
+        
+        var isNameDifferent = false
+        
+        if whichPlanet.name == "Earth" || whichPlanet.name == "Jupiter" || whichPlanet.name == "Mercury" {
+            isNameDifferent = false
+        } else {
+            isNameDifferent = true
+        }
 
         let skView = SKView(frame: UIScreen.main.bounds)
     
 
-        let scene = ImpulseSpriteKit(backgroundImage: planetsViewModel.getBackgroundNameImage(planet: whichPlanet), groundImage: planetsViewModel.getGroundExtendedNameImage(planet: whichPlanet), gravityValue: whichPlanet.gravityValue)
+        let scene = ImpulseSpriteKit(
+            backgroundImage: isNameDifferent ? createNewPlanetViewModel.getBackgroundImageName()  : planetsViewModel.getBackgroundNameImage(planet: whichPlanet),
+            groundImage: isNameDifferent ? createNewPlanetViewModel.getExtendedGroundImageName() : planetsViewModel.getGroundExtendedNameImage(planet: whichPlanet),
+            gravityValue: whichPlanet.gravityValue
+        )
         
         scene.scaleMode = .aspectFill
         

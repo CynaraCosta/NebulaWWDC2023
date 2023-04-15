@@ -10,26 +10,14 @@ class CreateNewPlanetViewModel: ObservableObject {
     @Published var validateName = true
     @Published var backToHome = false
     
-    @Published var imagesPlanet: [Image] = [
-        Image.theme.samplePlanetBlue,
-        Image.theme.samplePlanetRed,
-        Image.theme.samplePlanetGreen
-    ]
-    @Published var imagesGroundPlanet: [Image] = [
-        Image.theme.groundSamplePlanetBlue,
-        Image.theme.groundSamplePlanetRed,
-        Image.theme.groundSamplePlanetGreen
-    ]
-    @Published var imagesGroundExtendedPlanet: [Image] = [
-        Image.theme.groundExtendedSamplePlanetBlue,
-        Image.theme.groundExtendedSamplePlanetRed,
-        Image.theme.groundExtendedSamplePlanetGreen
-    ]
+    @Published var isBlue = false
+    @Published var isRed = false
+    @Published var isGreen = false
     
-    @Published var imagesBackgroundPlanet: [Image] = [
-        Image.theme.backgroundSamplePlanetBlue,
-        Image.theme.backgroundSamplePlanetRed,
-        Image.theme.backgroundSamplePlanetGreen
+    @Published var imagesPlanet: [String] = [
+        "sample-planet-blue",
+        "sample-planet-red",
+        "sample-planet-green"
     ]
     
     let allowedCharactersForName = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-&*ˆ%$#@!+=';"
@@ -46,6 +34,86 @@ class CreateNewPlanetViewModel: ObservableObject {
     
     func removeCurrentIndexToGetPreviousImage() {
         currentIndex = (currentIndex - 1 + imagesPlanet.count) % imagesPlanet.count
+    }
+    
+    func whichColorPlanet() {
+        if currentIndex == 0 {
+            isBlue = true
+        } else if currentIndex == 1 {
+            isRed = true
+        } else if currentIndex == 2 {
+            isGreen = true
+        }
+    }
+    
+    func getPortraitImage() -> Image {
+        if isBlue {
+            return Image.theme.samplePlanetBlue
+        } else if isRed {
+            return Image.theme.samplePlanetRed
+        } else {
+            return Image.theme.samplePlanetGreen
+        }
+    }
+    
+    func getBackgroundImage() -> Image {
+        if isBlue {
+            return Image.theme.backgroundSamplePlanetBlue
+        } else if isRed {
+            return Image.theme.backgroundSamplePlanetRed
+        } else {
+            return Image.theme.backgroundSamplePlanetGreen
+        }
+    }
+    
+    func getGroundImage() -> Image {
+        if isBlue {
+            return Image.theme.groundSamplePlanetBlue
+        } else if isRed {
+            return Image.theme.groundSamplePlanetRed
+        } else {
+            return Image.theme.groundSamplePlanetGreen
+        }
+    }
+    
+    func getExtendedGroundImage() -> Image {
+        if isBlue {
+            return Image.theme.groundExtendedSamplePlanetBlue
+        } else if isRed {
+            return Image.theme.groundExtendedSamplePlanetRed
+        } else {
+            return Image.theme.groundExtendedSamplePlanetGreen
+        }
+    }
+    
+    func getBackgroundImageName() -> String {
+        if isBlue {
+            return "background-sample-planet-blue"
+        } else if isRed {
+            return "background-sample-planet-red"
+        } else {
+            return "background-sample-planet-green"
+        }
+    }
+    
+    func getGroundImageName() -> String {
+        if isBlue {
+            return "ground-sample-planet-blue"
+        } else if isRed {
+            return "ground-sample-planet-red"
+        } else {
+            return "ground-sample-planet-green"
+        }
+    }
+    
+    func getExtendedGroundImageName() -> String {
+        if isBlue {
+            return "ground-extended-sample-planet-blue"
+        } else if isRed {
+            return "ground-extended-sample-planet-red"
+        } else {
+            return "ground-extended-sample-planet-green"
+        }
     }
     
     func returnFromAddButton() -> Bool {

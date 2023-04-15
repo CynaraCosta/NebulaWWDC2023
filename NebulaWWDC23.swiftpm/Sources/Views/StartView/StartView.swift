@@ -3,8 +3,10 @@ import SwiftUI
 struct StartView: View {
     
     @State var isAtMaxScale = false
+    
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
     private let maxScale: CGFloat = 1.1
@@ -31,6 +33,7 @@ struct StartView: View {
                                     Onboarding()
                                         .environmentObject(homeViewModel)
                                         .environmentObject(planetsViewModel)
+                                        .environmentObject(createNewPlanetViewModel)
                     ) {
                         Image.theme.pressStart
                             .resizable()

@@ -4,13 +4,27 @@ import SpriteKit
 struct GravityView: UIViewRepresentable {
     
     @State var whichPlanet: Planet
-    var planetsViewModel = Planets()
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     func makeUIView(context: Context) -> SKView {
-
+        var isNameDifferent = false
+        
+        if whichPlanet.name == "Earth" || whichPlanet.name == "Jupiter" || whichPlanet.name == "Mercury" {
+            isNameDifferent = false
+        } else {
+            isNameDifferent = true
+        }
+        
         let skView = SKView(frame: UIScreen.main.bounds)
-    
-        let scene = GameSceneGravity(backgroundImage: planetsViewModel.getBackgroundNameImage(planet: whichPlanet), ballImage: "ball", groundImage: planetsViewModel.getGroundNameImage(planet: whichPlanet), gravityValue: whichPlanet.gravityValue)
+        
+        let scene = GameSceneGravity(
+            backgroundImage: isNameDifferent ? createNewPlanetViewModel.getBackgroundImageName()  : planetsViewModel.getBackgroundNameImage(planet: whichPlanet),
+            ballImage: "ball",
+            groundImage: isNameDifferent ? createNewPlanetViewModel.getGroundImageName() : planetsViewModel.getGroundNameImage(planet: whichPlanet),
+            gravityValue: whichPlanet.gravityValue
+        )
         
         scene.scaleMode = .aspectFill
         

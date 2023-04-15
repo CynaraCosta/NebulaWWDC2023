@@ -4,14 +4,27 @@ import SpriteKit
 struct CollisionView: UIViewRepresentable {
     
     @State var whichPlanet: Planet
-    var planetsViewModel = Planets()
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     func makeUIView(context: Context) -> SKView {
+        
+        var isNameDifferent = false
+        
+        if whichPlanet.name == "Earth" || whichPlanet.name == "Jupiter" || whichPlanet.name == "Mercury" {
+            isNameDifferent = false
+        } else {
+            isNameDifferent = true
+        }
 
         let skView = SKView(frame: UIScreen.main.bounds)
-    
 
-        let scene = GameSceneCollision(backgroundImage: planetsViewModel.getBackgroundNameImage(planet: whichPlanet), ballImage: "ball", groundImage: planetsViewModel.getGroundExtendedNameImage(planet: whichPlanet), gravityValue: whichPlanet.gravityValue)
+        let scene = GameSceneCollision(
+            backgroundImage: isNameDifferent ? createNewPlanetViewModel.getBackgroundImageName()  : planetsViewModel.getBackgroundNameImage(planet: whichPlanet),
+            ballImage: "ball",
+            groundImage: isNameDifferent ? createNewPlanetViewModel.getExtendedGroundImageName() : planetsViewModel.getGroundExtendedNameImage(planet: whichPlanet),
+            gravityValue: whichPlanet.gravityValue
+        )
         
         scene.scaleMode = .aspectFill
         

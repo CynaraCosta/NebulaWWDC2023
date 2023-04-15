@@ -79,6 +79,8 @@ class Planets: ObservableObject {
         }
     }
     
+
+    
 }
 
 let dataFromPlanets = [

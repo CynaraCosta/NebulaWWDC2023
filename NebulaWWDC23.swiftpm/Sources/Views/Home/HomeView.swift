@@ -10,6 +10,7 @@ struct HomeView: View {
     
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
         
@@ -24,7 +25,9 @@ struct HomeView: View {
                     NavigationLink(destination:
                                     CreatePlanetView()
                         .environmentObject(homeViewModel)
-                        .environmentObject(planetsViewModel), isActive: $isPlusButtonSelected, label: {
+                        .environmentObject(planetsViewModel)
+                        .environmentObject(createNewPlanetViewModel),
+                                   isActive: $isPlusButtonSelected, label: {
                         Button(action: {
                             isPlusButtonSelected.toggle()
                         }) {
@@ -37,7 +40,10 @@ struct HomeView: View {
                         }
                     })
                 } else {
-                    NavigationLink(destination: StartView(), isActive: $isNewPlanetSelected, label: {
+                    NavigationLink(destination: NewPlanetChooseSimulation(namePlanet: planetsViewModel.whichPlanet(named: planetsViewModel.planets[3].name)!.name)
+                        .environmentObject(planetsViewModel)
+                        .environmentObject(homeViewModel)
+                        .environmentObject(createNewPlanetViewModel), isActive: $isNewPlanetSelected, label: {
                         Button(action: {
                             isNewPlanetSelected.toggle()
                         }) {

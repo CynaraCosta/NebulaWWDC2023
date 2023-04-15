@@ -4,15 +4,10 @@ import Combine
 
 struct CreatePlanetView: View {
     
-    @StateObject var createNewPlanetViewModel: CreateNewPlanetViewModel
-    
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var planetViewModel: Planets
-    
-    init() {
-        _createNewPlanetViewModel = StateObject(wrappedValue: CreateNewPlanetViewModel())
-    }
-    
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
+
     var body: some View {
         ZStack {
             Image.theme.background
@@ -32,7 +27,7 @@ struct CreatePlanetView: View {
                         Image.theme.arrowLeft
                     }
                     
-                    createNewPlanetViewModel.imagesPlanet[createNewPlanetViewModel.currentIndex]
+                    Image(createNewPlanetViewModel.imagesPlanet[createNewPlanetViewModel.currentIndex])
                         .resizable()
                         .scaledToFit()
                     
@@ -131,17 +126,17 @@ struct CreatePlanetView: View {
                 Button(action: {
                     
                     // need to change the values
-                    
+                    createNewPlanetViewModel.whichColorPlanet()
                     if createNewPlanetViewModel.returnFromAddButton() {
                         planetViewModel.addPlanet(
                             name: createNewPlanetViewModel.namePlanet,
-                            portraitImage: createNewPlanetViewModel.imagesPlanet[createNewPlanetViewModel.currentIndex],
+                            portraitImage: createNewPlanetViewModel.getPortraitImage(),
                             gravityValue: createNewPlanetViewModel.treatFloat(),
                             positionFromSun: "",
-                            groundImage: createNewPlanetViewModel.imagesGroundPlanet[createNewPlanetViewModel.currentIndex],
-                            backgroundImage: createNewPlanetViewModel.imagesBackgroundPlanet[createNewPlanetViewModel.currentIndex],
+                            groundImage: createNewPlanetViewModel.getGroundImage(),
+                            backgroundImage: createNewPlanetViewModel.getBackgroundImage(),
                             distanceFromSun: "",
-                            groundExtended: createNewPlanetViewModel.imagesGroundExtendedPlanet[createNewPlanetViewModel.currentIndex])
+                            groundExtended: createNewPlanetViewModel.getExtendedGroundImage())
                         homeViewModel.addNewPlanet.toggle()
                     }
                     

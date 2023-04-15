@@ -11,7 +11,9 @@ struct PlanetSimulation: View {
     
     @State var whichSimulation: String
     @State var whichPlanet: Planet
-    var planetsViewModel = Planets()
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
         
@@ -62,13 +64,19 @@ struct PlanetSimulation: View {
                         if whichSimulation == "Gravity" {
                             
                             GravityView(whichPlanet: whichPlanet)
+                                .environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel)
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
                             
                         } else if whichSimulation == "Collision" {
                             CollisionView(whichPlanet: whichPlanet)
+                                .environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel)
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
                         } else if whichSimulation == "Impulse" {
                             ImpulseView(whichPlanet: whichPlanet)
+                                .environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel)
                                 .frame(width: UIScreen.getScreenWidth() * 0.67, height: UIScreen.getScreenHeight() * 0.355)
                         }
                         

@@ -10,6 +10,7 @@ struct Onboarding: View {
     
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
         
@@ -49,7 +50,8 @@ struct Onboarding: View {
                 NavigationLink(destination:
                                 HomeView()
                                 .environmentObject(homeViewModel)
-                                .environmentObject(planetsViewModel),
+                                .environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel),
                                isActive: $shouldGoHome) {
                     EmptyView()
                 }

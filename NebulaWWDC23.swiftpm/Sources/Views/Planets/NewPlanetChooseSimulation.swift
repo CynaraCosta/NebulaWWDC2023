@@ -1,12 +1,14 @@
 import SwiftUI
 
-struct PlanetChooseSimulation: View {
+struct NewPlanetChooseSimulation: View {
     
     @State var namePlanet: String
-    var planetsViewModel = Planets()
     @State var isGravitySelected = false
     @State var isCollisionSelected = false
     @State var isLaunchSelected = false
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
         ZStack {
@@ -49,7 +51,8 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Gravity", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Gravity", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!).environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel),
                                            isActive: $isGravitySelected,
                                            label: {
                                 Button(action: {
@@ -80,7 +83,8 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Collision", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Collision", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!).environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel),
                                            isActive: $isCollisionSelected,
                                            label: {
                                 Button(action: {
@@ -110,7 +114,8 @@ struct PlanetChooseSimulation: View {
                             }
                             .padding(.bottom, UIScreen.getScreenWidth() * 0.02)
                             
-                            NavigationLink(destination: OnboardingSimulationView(whichSimulation: "Impulse", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!),
+                            NavigationLink(destination: PlanetSimulation(whichSimulation: "Impulse", whichPlanet: planetsViewModel.whichPlanet(named: namePlanet)!).environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel),
                                            isActive: $isLaunchSelected,
                                            label: {
                                 Button(action: {
@@ -135,8 +140,3 @@ struct PlanetChooseSimulation: View {
     }
 }
 
-struct PlanetChooseSimulation_Previews: PreviewProvider {
-    static var previews: some View {
-        PlanetChooseSimulation(namePlanet: "Earth")
-    }
-}
