@@ -20,3 +20,8 @@ StartView            |  Onboarding
 ## Video demo of the App 🎥
 
 ## How to play 📱
+```
+# Clone this repositorie 
+$ git clone https://github.com/CynaraCosta/NebulaWWDC2023.git
+```
+ Or just download the project and open it in xcode and select the "play" symbol or press "command + R" which will launch the project!
