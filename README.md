@@ -1,4 +1,7 @@
-# NebulaWWDC2023
-<h1>
-    <img src="https://github.com/CynaraCosta/NebulaWWDC2023/tree/main/Screenshots">
+# Nebula - WWDC23 Scholarship Application
+
+This playground was created for [WWDC 2023 Scholarship Application](https://developer.apple.com/wwdc23/).
+
+<h1 align="center">
+    <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/portrait.png">
 </h1>
