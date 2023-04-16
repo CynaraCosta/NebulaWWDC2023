@@ -28,7 +28,7 @@ class ImpulseSpriteKit: SKScene, SKPhysicsContactDelegate {
     
     var touchedObject: SKSpriteNode?
     
-    let initialBallPosition = CGPoint(x: 400, y: 100)
+    let initialBallPosition = CGPoint(x: UIScreen.main.bounds.width * 0.4, y: 100)
 
     init(backgroundImage: String,  groundImage: String, gravityValue: Float) {
         self.backgroundImage = backgroundImage
