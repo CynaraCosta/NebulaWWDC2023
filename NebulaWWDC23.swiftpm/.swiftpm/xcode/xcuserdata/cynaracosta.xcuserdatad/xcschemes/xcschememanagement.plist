@@ -22,6 +22,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>Nebula</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>NebulaWWDC23</key>
 		<dict>
 			<key>primary</key>

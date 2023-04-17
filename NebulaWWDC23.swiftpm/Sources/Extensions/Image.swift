@@ -36,6 +36,7 @@ struct ImageTheme {
     let plusButton = Image("plusButton")
     let ball = Image("ball")
     let simulateButton = Image("buttonSimulate")
+    let addButton = Image("buttonAdd")
     let groundEarth = Image("ground-earth")
     let groundJupiter = Image("ground-jupiter")
     let groundMercury = Image("ground-mercury")

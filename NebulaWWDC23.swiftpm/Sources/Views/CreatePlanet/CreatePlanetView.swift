@@ -14,7 +14,7 @@ struct CreatePlanetView: View {
                 .resizable()
                 .ignoresSafeArea(.all)
             
-            VStack (spacing: 56) {
+            VStack (spacing: 48) {
                 
                 HStack (spacing: 64) {
                     
@@ -142,7 +142,7 @@ struct CreatePlanetView: View {
                     }
                     
                 }) {
-                    Image.theme.simulateButton
+                    Image.theme.addButton
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.getScreenWidth() * 0.34, height: UIScreen.getScreenHeight() * 0.05)
