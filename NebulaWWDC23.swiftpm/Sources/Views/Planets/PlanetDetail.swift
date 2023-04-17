@@ -1,11 +1,13 @@
 import SwiftUI
 import SceneKit
+import Combine
 
 struct PlanetDetail: View {
     
     @State var namePlanet: String
     var planetsViewModel = Planets()
     @State var pressedSimulate = false
+    @State private var isViewAppeared = false
     @State var terra: SCNScene? = .init(named: "earth3dteste.scn")
     
     var body: some View {
@@ -25,6 +27,14 @@ struct PlanetDetail: View {
                 CustomSceneView(scene: $terra)
                 //0.52
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
+                    .onAppear {
+                        self.isViewAppeared = true
+                        rotatePlanet()
+                    }
+                    .onDisappear {
+                        self.isViewAppeared = false
+                        resetNodeState()
+                    }
                 
                 ZStack {
                     Image.theme.backgroundDetailPlanet
@@ -79,8 +89,23 @@ struct PlanetDetail: View {
             .edgesIgnoringSafeArea(.bottom)
         }
     }
+    
+    func resetNodeState() {
+        terra?.rootNode.removeAllActions()
+        
+        terra?.rootNode.position = SCNVector3(x: 0.9, y: 0.8, z: -1.5)
+        terra?.rootNode.scale = SCNVector3(x: 1.0, y: 1.0, z: 1.0)
+        terra?.rootNode.rotation = SCNVector4(x: 0.0, y: 0.0, z: 0.0, w: 0.0)
+    }
 
-
+    func rotatePlanet() {
+        resetNodeState()
+        
+        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-2 * Double.pi), z: 0, duration: 10)
+        let repeatRotation = SCNAction.repeatForever(rotation)
+        terra?.rootNode.runAction(repeatRotation)
+    }
+    
 
     
 }
