@@ -1,17 +1,12 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Cynara Costa on 05/04/23.
-//
-
 import SwiftUI
+import SceneKit
 
 struct PlanetDetail: View {
     
     @State var namePlanet: String
     var planetsViewModel = Planets()
     @State var pressedSimulate = false
+    @State var terra: SCNScene? = .init(named: "earth3dteste.scn")
     
     var body: some View {
         
@@ -19,11 +14,17 @@ struct PlanetDetail: View {
             
             Background()
             
-            VStack (spacing: 32) {
+            VStack (spacing: 0) {
                 
-                planetsViewModel.whichPlanet(named: namePlanet)?.portraitImage
-                    .resizable()
-                    .scaledToFit()
+                //                planetsViewModel.whichPlanet(named: namePlanet)?.portraitImage
+                //                    .resizable()
+                //                    .scaledToFit()
+                //                    .background(.green)
+                
+                
+                CustomSceneView(scene: $terra)
+                //0.52
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
                 
                 ZStack {
                     Image.theme.backgroundDetailPlanet
@@ -76,8 +77,19 @@ struct PlanetDetail: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
-        }   
+        }.onAppear {
+            rotatePlanet()
+        }
     }
+
+    func rotatePlanet() {
+        terra?.rootNode.pivot = SCNMatrix4MakeTranslation(0.85, 0.85, -0.85)
+        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-2 * Double.pi), z: 0, duration: 10)
+        let repeatRotation = SCNAction.repeatForever(rotation)
+        terra?.rootNode.runAction(repeatRotation)
+    }
+
+    
 }
 
 struct PlanetDetail_Previews: PreviewProvider {
