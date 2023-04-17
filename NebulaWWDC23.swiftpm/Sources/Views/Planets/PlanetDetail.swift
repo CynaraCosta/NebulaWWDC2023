@@ -12,6 +12,8 @@ struct PlanetDetail: View {
     
     var body: some View {
         
+        var scenePlanet = planetsViewModel.returnScene(planet: planetsViewModel.whichPlanet(named: namePlanet)!)
+        
         ZStack {
             
             Background()
@@ -24,18 +26,18 @@ struct PlanetDetail: View {
                 //                    .background(.green)
                 
                 
-                CustomSceneView(scene: $terra)
+                CustomSceneView(scene: scenePlanet)
                 //0.52
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
                     .onAppear {
                         self.isViewAppeared = true
                         //                        rotatePlanet()
-                        planetsViewModel.rotatePlanet(planet: terra!)
+                        planetsViewModel.rotatePlanet(planet: scenePlanet!)
                     }
                     .onDisappear {
                         self.isViewAppeared = false
                         //resetNodeState()
-                        planetsViewModel.resetNodeState(planet: terra!)
+                        planetsViewModel.resetNodeState(planet: scenePlanet!)
                     }
                 
                 ZStack {

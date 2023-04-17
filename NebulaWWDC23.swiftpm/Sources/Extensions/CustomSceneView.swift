@@ -2,7 +2,7 @@ import SwiftUI
 import SceneKit
 
 struct CustomSceneView: UIViewRepresentable {
-    @Binding var scene: SCNScene?
+    var scene: SCNScene?
     
     func makeUIView(context: Context) ->  SCNView {
         let view = SCNView()

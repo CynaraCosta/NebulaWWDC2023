@@ -143,6 +143,6 @@ class GameSceneCollision: SKScene {
 
 struct PlanetSimulationCollision_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetSimulation(whichSimulation: "Collision", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth))
+        PlanetSimulation(whichSimulation: "Collision", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, model3d: "earth3d.scn", gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth))
     }
 }

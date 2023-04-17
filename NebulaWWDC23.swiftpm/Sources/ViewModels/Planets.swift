@@ -9,9 +9,9 @@ class Planets: ObservableObject {
         self.planets = dataFromPlanets
     }
     
-    func addPlanet(name: String, portraitImage: Image, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String, groundExtended: Image) {
+    func addPlanet(name: String, portraitImage: Image, model3d: String, gravityValue: Float, positionFromSun: String, groundImage: Image, backgroundImage: Image, distanceFromSun: String, groundExtended: Image) {
         
-        let newPlanet = Planet(name: name, portraitImage: portraitImage, gravityValue: gravityValue, positionFromSun: positionFromSun, groundImage: groundImage, backgroundImage: backgroundImage, distanceFromSun: distanceFromSun, groundExtended: groundExtended)
+        let newPlanet = Planet(name: name, portraitImage: portraitImage,model3d: model3d,gravityValue: gravityValue, positionFromSun: positionFromSun, groundImage: groundImage, backgroundImage: backgroundImage, distanceFromSun: distanceFromSun, groundExtended: groundExtended)
         
         planets.append(newPlanet)
         
@@ -96,12 +96,20 @@ class Planets: ObservableObject {
         planet.rootNode.runAction(repeatRotation)
     }
     
+    func returnScene(planet: Planet) -> SCNScene? {
+        guard let scene = SCNScene(named: planet.model3d) else {
+            return nil
+        }
+        return scene
+    }
+
+    
 }
 
 let dataFromPlanets = [
-    Planet(name: "Jupiter", portraitImage: Image.theme.planetJupiter, gravityValue: 27.8, positionFromSun: "fifth", groundImage: Image.theme.groundJupiter, backgroundImage: Image.theme.backgroundJupiter, distanceFromSun: "778", groundExtended: Image.theme.groundExtendedJupiter),
-    Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth),
-    Planet(name: "Mercury", portraitImage: Image.theme.planetMercury, gravityValue: 3.7, positionFromSun: "first", groundImage: Image.theme.groundMercury, backgroundImage: Image.theme.backgroundMercury, distanceFromSun: "57.9", groundExtended: Image.theme.groundExtendedMercury)
+    Planet(name: "Jupiter", portraitImage: Image.theme.planetJupiter, model3d: "jupiter3d.scn", gravityValue: 27.8, positionFromSun: "fifth", groundImage: Image.theme.groundJupiter, backgroundImage: Image.theme.backgroundJupiter, distanceFromSun: "778", groundExtended: Image.theme.groundExtendedJupiter),
+    Planet(name: "Earth", portraitImage: Image.theme.planetEarth, model3d: "earth3d.scn", gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth),
+    Planet(name: "Mercury", portraitImage: Image.theme.planetMercury, model3d: "mercury3d.scn", gravityValue: 3.7, positionFromSun: "first", groundImage: Image.theme.groundMercury, backgroundImage: Image.theme.backgroundMercury, distanceFromSun: "57.9", groundExtended: Image.theme.groundExtendedMercury)
 ]
 
 let textForGravity = "Simulate gravity with an object inside this planet."

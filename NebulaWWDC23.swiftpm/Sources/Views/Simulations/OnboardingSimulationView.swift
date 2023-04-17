@@ -64,6 +64,6 @@ struct OnboardingSimulationView: View {
 
 struct OnboardingSimulationView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingSimulationView(whichSimulation: "Gravity", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth))
+        OnboardingSimulationView(whichSimulation: "Gravity", whichPlanet: Planet(name: "Earth", portraitImage: Image.theme.planetEarth, model3d: "earth3d.scn", gravityValue: 9.8, positionFromSun: "third", groundImage: Image.theme.groundEarth, backgroundImage: Image.theme.backgroundEarth, distanceFromSun: "149.6", groundExtended: Image.theme.groundExtendedEarth))
     }
 }
