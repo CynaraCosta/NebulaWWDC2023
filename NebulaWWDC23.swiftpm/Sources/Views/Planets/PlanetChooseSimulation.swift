@@ -3,21 +3,37 @@ import SwiftUI
 struct PlanetChooseSimulation: View {
     
     @State var namePlanet: String
-    var planetsViewModel = Planets()
     @State var isGravitySelected = false
     @State var isCollisionSelected = false
     @State var isLaunchSelected = false
+    @State private var isViewAppeared = false
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
+        
+        var scenePlanet = planetsViewModel.returnScene(planet: planetsViewModel.whichPlanet(named: namePlanet)!)
+        
         ZStack {
             
             Background()
             
             VStack (spacing: 32) {
                 
-                planetsViewModel.whichPlanet(named: namePlanet)?.portraitImage
-                    .resizable()
-                    .scaledToFit()
+                CustomSceneView(scene: scenePlanet)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
+                    .onAppear {
+                        self.isViewAppeared = true
+                        //                        rotatePlanet()
+                        planetsViewModel.rotatePlanet(planet: scenePlanet!)
+                    }
+                    .onDisappear {
+                        self.isViewAppeared = false
+                        //resetNodeState()
+                        planetsViewModel.resetNodeState(planet: scenePlanet!)
+                    }
+
                 
                 ZStack {
                     Image.theme.backgroundDetailPlanet

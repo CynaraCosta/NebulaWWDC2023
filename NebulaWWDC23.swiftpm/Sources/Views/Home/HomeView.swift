@@ -57,7 +57,9 @@ struct HomeView: View {
                     })
                 }
                 
-                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Jupiter")!.name),
+                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Jupiter")!.name)
+                    .environmentObject(planetsViewModel)
+                    .environmentObject(createNewPlanetViewModel),
                                isActive: $isJupiterSelected,
                                label: {
                     Button(action: {
@@ -69,7 +71,9 @@ struct HomeView: View {
                             .frame(width: UIScreen.getScreenWidth() * 0.32, height: UIScreen.getScreenHeight() * 0.23)
                     }})
                 
-                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Earth")!.name),
+                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Earth")!.name)
+                    .environmentObject(planetsViewModel)
+                    .environmentObject(createNewPlanetViewModel),
                                isActive: $isEarthSelected,
                                label: {
                     Button(action: {
@@ -82,7 +86,9 @@ struct HomeView: View {
                     }})
                 
                 
-                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Mercury")!.name),
+                NavigationLink(destination: PlanetDetail(namePlanet: planetsViewModel.whichPlanet(named: "Mercury")!.name)
+                    .environmentObject(planetsViewModel)
+                    .environmentObject(createNewPlanetViewModel),
                                isActive: $isMercurySelected,
                                label: {
                     Button(action: {

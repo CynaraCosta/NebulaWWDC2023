@@ -5,10 +5,11 @@ import Combine
 struct PlanetDetail: View {
     
     @State var namePlanet: String
-    var planetsViewModel = Planets()
     @State var pressedSimulate = false
     @State private var isViewAppeared = false
-    @State var terra: SCNScene? = .init(named: "earth3d.scn")
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
         
@@ -20,14 +21,7 @@ struct PlanetDetail: View {
             
             VStack (spacing: 0) {
                 
-                //                planetsViewModel.whichPlanet(named: namePlanet)?.portraitImage
-                //                    .resizable()
-                //                    .scaledToFit()
-                //                    .background(.green)
-                
-                
                 CustomSceneView(scene: scenePlanet)
-                //0.52
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
                     .onAppear {
                         self.isViewAppeared = true
@@ -76,7 +70,10 @@ struct PlanetDetail: View {
                                 .frame(width: UIScreen.getScreenWidth() * 0.27, alignment: .leading)
                                 .fixedSize(horizontal: true, vertical: false)
                             
-                            NavigationLink(destination: PlanetChooseSimulation(namePlanet: namePlanet), isActive: $pressedSimulate, label: {
+                            NavigationLink(destination: PlanetChooseSimulation(namePlanet: namePlanet)
+                                .environmentObject(planetsViewModel)
+                                .environmentObject(createNewPlanetViewModel),
+                                isActive: $pressedSimulate, label: {
                                 Button(action: {
                                     pressedSimulate.toggle()
                                 }) {

@@ -116,6 +116,16 @@ class CreateNewPlanetViewModel: ObservableObject {
         }
     }
     
+    func get3dName() -> String {
+        if isBlue {
+            return "sample-planet-blue.scn"
+        } else if isRed {
+            return "sample-planet-red.scn"
+        } else {
+            return "sample-planet-green.scn"
+        }
+    }
+    
     func returnFromAddButton() -> Bool {
         
         if gravityPlanet == "" || namePlanet == "" {

@@ -4,19 +4,34 @@ struct OnboardingSimulationView: View {
     
     @State var whichSimulation: String
     @State var whichPlanet: Planet
-    var planetsViewModel = Planets()
     @State var isButtonSelected = false
+    @State private var isViewAppeared = false
+    
+    @EnvironmentObject var planetsViewModel: Planets
+    @EnvironmentObject var createNewPlanetViewModel: CreateNewPlanetViewModel
     
     var body: some View {
+        
+        var scenePlanet = planetsViewModel.returnScene(planet: whichPlanet)
+        
         ZStack {
             
             Background()
             
-            VStack (spacing: 32) {
+            VStack (spacing: 0) {
                 
-                planetsViewModel.whichPlanet(named: whichPlanet.name)?.portraitImage
-                    .resizable()
-                    .scaledToFit()
+                CustomSceneView(scene: scenePlanet)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
+                    .onAppear {
+                        self.isViewAppeared = true
+                        //                        rotatePlanet()
+                        planetsViewModel.rotatePlanet(planet: scenePlanet!)
+                    }
+                    .onDisappear {
+                        self.isViewAppeared = false
+                        //resetNodeState()
+                        planetsViewModel.resetNodeState(planet: scenePlanet!)
+                    }
                 
                 ZStack {
                     Image.theme.backgroundDetailPlanet

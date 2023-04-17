@@ -131,7 +131,7 @@ struct CreatePlanetView: View {
                         planetViewModel.addPlanet(
                             name: createNewPlanetViewModel.namePlanet,
                             portraitImage: createNewPlanetViewModel.getPortraitImage(),
-                            model3d: "",
+                            model3d: createNewPlanetViewModel.get3dName(),
                             gravityValue: createNewPlanetViewModel.treatFloat(),
                             positionFromSun: "",
                             groundImage: createNewPlanetViewModel.getGroundImage(),
