@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "NebulaWWDC23",
+    name: "Nebula",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "NebulaWWDC23",
+            name: "Nebula",
             targets: ["AppModule"],
             bundleIdentifier: "br.ufpe.cin.academy.NebulaWWDC23",
             teamIdentifier: "9YF48LKAWG",

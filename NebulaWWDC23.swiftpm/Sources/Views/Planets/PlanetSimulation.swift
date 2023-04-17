@@ -46,7 +46,7 @@ struct PlanetSimulation: View {
                         .scaledToFit()
                         .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.64)
                     
-                    VStack (spacing: 24) {
+                    VStack (spacing: 16) {
                         
                         Text(planetsViewModel.whichPlanet(named: whichPlanet.name)!.name)
                             .foregroundColor(Color.accentColor)

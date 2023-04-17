@@ -39,7 +39,7 @@ struct OnboardingSimulationView: View {
                         .scaledToFit()
                         .frame(width: UIScreen.getScreenWidth() * 0.77, height: UIScreen.getScreenHeight() * 0.64)
                     
-                    VStack (spacing: 32) {
+                    VStack (spacing: 24) {
                         
                         
                         Text(planetsViewModel.whichPlanet(named: whichPlanet.name)!.name)
