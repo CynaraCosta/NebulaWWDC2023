@@ -8,7 +8,7 @@ struct PlanetDetail: View {
     var planetsViewModel = Planets()
     @State var pressedSimulate = false
     @State private var isViewAppeared = false
-    @State var terra: SCNScene? = .init(named: "earth3dteste.scn")
+    @State var terra: SCNScene? = .init(named: "earth3d.scn")
     
     var body: some View {
         
