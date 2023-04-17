@@ -29,11 +29,13 @@ struct PlanetDetail: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
                     .onAppear {
                         self.isViewAppeared = true
-                        rotatePlanet()
+                        //                        rotatePlanet()
+                        planetsViewModel.rotatePlanet(planet: terra!)
                     }
                     .onDisappear {
                         self.isViewAppeared = false
-                        resetNodeState()
+                        //resetNodeState()
+                        planetsViewModel.resetNodeState(planet: terra!)
                     }
                 
                 ZStack {
@@ -89,25 +91,6 @@ struct PlanetDetail: View {
             .edgesIgnoringSafeArea(.bottom)
         }
     }
-    
-    func resetNodeState() {
-        terra?.rootNode.removeAllActions()
-        
-        terra?.rootNode.position = SCNVector3(x: 0.9, y: 0.8, z: -1.5)
-        terra?.rootNode.scale = SCNVector3(x: 1.0, y: 1.0, z: 1.0)
-        terra?.rootNode.rotation = SCNVector4(x: 0.0, y: 0.0, z: 0.0, w: 0.0)
-    }
-
-    func rotatePlanet() {
-        resetNodeState()
-        
-        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-2 * Double.pi), z: 0, duration: 10)
-        let repeatRotation = SCNAction.repeatForever(rotation)
-        terra?.rootNode.runAction(repeatRotation)
-    }
-    
-
-    
 }
 
 struct PlanetDetail_Previews: PreviewProvider {

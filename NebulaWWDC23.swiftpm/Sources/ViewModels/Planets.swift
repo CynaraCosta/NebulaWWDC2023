@@ -1,4 +1,5 @@
 import SwiftUI
+import SceneKit
 
 class Planets: ObservableObject {
     
@@ -79,7 +80,21 @@ class Planets: ObservableObject {
         }
     }
     
+    func resetNodeState(planet: SCNScene) {
+        planet.rootNode.removeAllActions()
+        
+        planet.rootNode.position = SCNVector3(x: 0.9, y: 0.8, z: -1.5)
+        planet.rootNode.scale = SCNVector3(x: 1.0, y: 1.0, z: 1.0)
+        planet.rootNode.rotation = SCNVector4(x: 0.0, y: 0.0, z: 0.0, w: 0.0)
+    }
 
+    func rotatePlanet(planet: SCNScene) {
+        resetNodeState(planet: planet)
+        
+        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-2 * Double.pi), z: 0, duration: 10)
+        let repeatRotation = SCNAction.repeatForever(rotation)
+        planet.rootNode.runAction(repeatRotation)
+    }
     
 }
 
