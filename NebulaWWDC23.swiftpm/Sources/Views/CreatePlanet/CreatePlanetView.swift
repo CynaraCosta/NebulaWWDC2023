@@ -125,7 +125,6 @@ struct CreatePlanetView: View {
                 NavigationLink(destination: HomeView(), isActive: $homeViewModel.addNewPlanet) {EmptyView()}
                 Button(action: {
                     
-                    // need to change the values
                     createNewPlanetViewModel.whichColorPlanet()
                     if createNewPlanetViewModel.returnFromAddButton() {
                         planetViewModel.addPlanet(

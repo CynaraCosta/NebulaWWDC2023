@@ -1,10 +1,3 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Cynara Costa on 05/04/23.
-//
-
 import SwiftUI
 
 struct OnboardingTextComponent: View {

@@ -60,14 +60,10 @@ class GameSceneGravity: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-            
-            // Obtenha a localização do toque na cena
             let location = touch.location(in: self)
             
-            // Verifique se o toque está dentro da bola
             if ball.contains(location) {
                 
-                // Desconecte a bola da gravidade para que possa ser arrastada
                 ball.physicsBody?.affectedByGravity = false
                 
             }
@@ -79,11 +75,9 @@ class GameSceneGravity: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-            
-            // Obtenha a localização do toque na cena
+
             let location = touch.location(in: self)
             
-            // Movimente a bola para a localização do toque
             ball.position = location
             
         }
@@ -93,14 +87,11 @@ class GameSceneGravity: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-            
-            // Obtenha a localização do toque na cena
+
             let location = touch.location(in: self)
             
-            // Conecte a bola de volta à gravidade
             ball.physicsBody?.affectedByGravity = true
             
-            // Defina a velocidade inicial da bola com base na distância do toque
             let dx = ball.position.x - location.x
             let dy = ball.position.y - location.y
             ball.physicsBody?.velocity = CGVector(dx: dx, dy: dy)

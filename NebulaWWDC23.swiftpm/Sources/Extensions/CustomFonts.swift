@@ -2,7 +2,6 @@ import SwiftUI
 
 enum MyCustomFonts: String, CaseIterable {
     
-    //e.g, the fonts below:
     case vt323 = "VT323-Regular.ttf"
     case inconsolateLight = "Inconsolata-Light.ttf"
     case inconsolateRegular = "Inconsolata-Regular.ttf"

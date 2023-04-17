@@ -119,7 +119,7 @@ class GameSceneCollision: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touchedObject = touchedObject else {
-            // a variável touchedObject é nula, sair da função
+            
             return
         }
 
@@ -136,7 +136,7 @@ class GameSceneCollision: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        
     }
     
 }

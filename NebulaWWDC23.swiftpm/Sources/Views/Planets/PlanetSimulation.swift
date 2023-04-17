@@ -1,10 +1,3 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Cynara Costa on 06/04/23.
-//
-
 import SwiftUI
 
 struct PlanetSimulation: View {
@@ -31,12 +24,10 @@ struct PlanetSimulation: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.37, alignment: .center)
                     .onAppear {
                         self.isViewAppeared = true
-                        //                        rotatePlanet()
                         planetsViewModel.rotatePlanet(planet: scenePlanet!)
                     }
                     .onDisappear {
                         self.isViewAppeared = false
-                        //resetNodeState()
                         planetsViewModel.resetNodeState(planet: scenePlanet!)
                     }
                 
