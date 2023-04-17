@@ -11,7 +11,8 @@ struct CustomSceneView: UIViewRepresentable {
         view.antialiasingMode = .multisampling2X
         view.scene = scene
         
-        scene?.rootNode.pivot = SCNMatrix4MakeTranslation(0.85, 0.85, -0.85)
+        scene?.rootNode.pivot = SCNMatrix4MakeTranslation(0.9, 0.9, -0.9)
+//        scene?.rootNode.pivot = SCNMatrix4MakeTranslation(0.85, 0.85, -0.85)
 //        scene?.rootNode.position = SCNVector3(0.9, 0.8, -1.5)
 
         
