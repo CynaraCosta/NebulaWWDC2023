@@ -77,17 +77,10 @@ struct PlanetDetail: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
-        }.onAppear {
-            rotatePlanet()
         }
     }
 
-    func rotatePlanet() {
-        terra?.rootNode.pivot = SCNMatrix4MakeTranslation(0.85, 0.85, -0.85)
-        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-2 * Double.pi), z: 0, duration: 10)
-        let repeatRotation = SCNAction.repeatForever(rotation)
-        terra?.rootNode.runAction(repeatRotation)
-    }
+
 
     
 }
