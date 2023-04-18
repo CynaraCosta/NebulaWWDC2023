@@ -45,5 +45,9 @@
  - VT323: [GoogleFonts] https://fonts.google.com/specimen/VT323?query=VT323
  - Inconsolata: [GoogleFonts] https://fonts.google.com/specimen/Inconsolata?query=Inconsolat
  
+ ## Other informations
+ 
+ For other informations, about me or the project, here's my github: https://github.com/CynaraCosta
+ 
  */
 
