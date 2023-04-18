@@ -1,6 +1,6 @@
 # Nebula 🚀 - WWDC23 Scholarship Application
 
-This playground was created for [WWDC 2023 Scholarship Application](https://developer.apple.com/wwdc23/).
+This playground was created for [WWDC 2023 Scholarship Application](https://developer.apple.com/wwdc23/swift-student-challenge/).
 
 <h1 align="center">
     <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/portrait.png">
