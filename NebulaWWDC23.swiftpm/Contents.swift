@@ -27,7 +27,7 @@
  
  Because of that I wanted to use and learn things different from the previous attempt, so for this Project, I used Swiftui as well, but inovate with SpriteKit for doing the simulations and SceneKit for implement the 3D model for the planets.
  
- And I feel in the obligation to say that it was pretty challenge for me to include and understang the principles behind the rotation animation at the 3D model for the planets using SceneKit, since I had to learn about Camera, Rotation, Pivot Point and other things to get that effect at the planets! But when I got the positive result, I felt so Happy!
+ And I feel in the obligation to say that it was pretty challenge for me to include and understand the principles behind the rotation animation at the 3D model for the planets using SceneKit, since I had to learn about Camera, Rotation, Pivot Point and other things to get that effect at the planets! But when I got the positive result, I felt so Happy!
  
  Also, in terms of code, I was very ansious to learn about Design Patterns for use with Swift, so I implemented the MVVM for this project!
  
