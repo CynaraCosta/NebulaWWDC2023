@@ -20,7 +20,7 @@
  
  Hi! My name is Cynara Costa and I am 21 years old. I am a student in computer science at the UFPE University, Recife - Brazil.
  
- I also participated of a Junior Company named CITi as a Product Designer before joining the Apple Developer Academy in 2022. Before that, I had no contact with anything close to Swift or other techlonogys from apple.
+ I also participated of a Junior Company named CITi as a Product Designer before joining the Apple Developer Academy in 2022. Before that, I had no contact with anything close to Swift or other technologies from apple.
  
  This is my second attempt for the Swift Student Challenge, the first and accepted submission was the "GraviNewton" and in this second, I wanted to challenge more myself.
  
