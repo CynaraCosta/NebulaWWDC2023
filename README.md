@@ -51,6 +51,7 @@ Home View With New Planet  |  New Planet
 This app was built using SwiftUI for interface and navigation 👩🏻‍💻, SpriteKit for the simulations 🕹️ and SceneKit for the 3d model planet 🪐!
 
 ## Video demo of the App 🎥
+[![Nebula Demo Vídeo](https://img.youtube.com/vi/BDLmpXuUKpg/0.jpg)](https://www.youtube.com/watch?v=BDLmpXuUKpg)
 
 ## How to play 📱
 ```
