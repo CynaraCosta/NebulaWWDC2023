@@ -1,6 +1,7 @@
 /*
  
  # Nebula
+ For better exeperience, use the iPad Pro (11-inch) (4th generation) simulator.
  
  ## How does it work?
  
