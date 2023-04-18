@@ -32,19 +32,19 @@ StartView            |  Onboarding
 
 Home View            |  Planet Detail
 :-------------------------:|:-------------------------:
-<img src="" alt="HomeView" width="487" height="685"> | <img src="" alt="PlanetDetail" width="487" height="685"> 
+<img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/HomeView.png" alt="HomeView" width="487" height="685"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/PlanetDetail.png" alt="PlanetDetail" width="487" height="685"> 
 
 Choose Simulation    |  Onboarding Simulation
 :-------------------------:|:-------------------------:
-<img src="" alt="Choose Simulation" width="487" height="685"> | <img src="" alt="Onboarding Simulation" width="487" height="685"> 
+<img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/ChooseSimulation.png" alt="Choose Simulation" width="487" height="685"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/OnboardingSimulation.png" alt="Onboarding Simulation" width="487" height="685"> 
 
 Impulse Simulation   |  Create New Planet
 :-------------------------:|:-------------------------:
-<img src="" alt="Impulse Simulation" width="487" height="685"> | <img src="" alt="Create New Planet" width="487" height="685"> 
+<img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/ImpulseSimulation.png" alt="Impulse Simulation" width="487" height="685"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/CreateNewPlanet.png" alt="Create New Planet" width="487" height="685"> 
 
 Home View With New Planet  |  New Planet 
 :-------------------------:|:-------------------------:
-<img src="" alt="Home View With New Planet" width="487" height="685"> | <img src="" alt="New Planet" width="487" height="685"> 
+<img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/HomeViewWithNewPlanet.png" alt="Home View With New Planet" width="487" height="685"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/NewPlanet.png" alt="New Planet" width="487" height="685"> 
 
 
 ## Frameworks 📚
