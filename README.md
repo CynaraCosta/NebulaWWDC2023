@@ -19,12 +19,36 @@ So be creative and test it out! ✒️
 
 ## Development 👩🏻‍💻
 
+I developed this app so that people could learn more physics concepts and apply them to some planets in our solar system.
+
+Bringing some forms of simulation, like gravity, collision and impulse, and information about Earth, Mercury and Jupiter, in addition to the possibility of creating a planet with your chosen information
+
+This is to bring the concept of tangential learning into the realm of technology using Swift.
+
 ## Layout 🎨
 StartView            |  Onboarding
 :-------------------------:|:-------------------------:
 <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/start-view.png" alt="StartView" width="487" height="685"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/onboarding-view.png" alt="Onboarding" width="487" height="685"> 
 
+Home View            |  Planet Detail
+:-------------------------:|:-------------------------:
+<img src="" alt="HomeView" width="487" height="685"> | <img src="" alt="PlanetDetail" width="487" height="685"> 
+
+Choose Simulation    |  Onboarding Simulation
+:-------------------------:|:-------------------------:
+<img src="" alt="Choose Simulation" width="487" height="685"> | <img src="" alt="Onboarding Simulation" width="487" height="685"> 
+
+Impulse Simulation   |  Create New Planet
+:-------------------------:|:-------------------------:
+<img src="" alt="Impulse Simulation" width="487" height="685"> | <img src="" alt="Create New Planet" width="487" height="685"> 
+
+Home View With New Planet  |  New Planet 
+:-------------------------:|:-------------------------:
+<img src="" alt="Home View With New Planet" width="487" height="685"> | <img src="" alt="New Planet" width="487" height="685"> 
+
+
 ## Frameworks 📚
+This app was built using SwiftUI for interface and navigation 👩🏻‍💻, SpriteKit for the simulations 🕹️ and SceneKit for the 3d model planet 🪐!
 
 ## Video demo of the App 🎥
 
