@@ -54,9 +54,10 @@ This app was built using SwiftUI for interface and navigation 👩🏻‍💻, S
 [![Nebula Demo Vídeo](https://img.youtube.com/vi/BDLmpXuUKpg/0.jpg)](https://www.youtube.com/watch?v=BDLmpXuUKpg)
 
 ## How to play 📱
+For better exeperience, use the iPad Pro (11-inch) (4th generation) simulator or device.
 ```
 # Clone this repositorie 
 $ git clone https://github.com/CynaraCosta/NebulaWWDC2023.git
 ```
  Or just download the project and open it in xcode and select the "play" symbol or press "command + R" which will launch the project! 
- For better exeperience, use the iPad Pro (11-inch) (4th generation) simulator.
+
